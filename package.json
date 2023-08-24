@@ -11,15 +11,17 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "nuxi dev",
-    "build": "nuxi build",
-    "preview": "nuxi preview",
-    "start": "node .output/server/index.mjs",
-    "generate": "nuxi generate",
-    "postinstall": "nuxi prepare"
+    "dev": "MODE=dev nuxi dev",
+    "stage": "MODE=staging nuxi dev",
+    "build": "MODE=prod nuxi build",
+    "preview": "MODE=prod nuxi preview",
+    "start": "MODE=prod node .output/server/index.mjs",
+    "generate": "MODE=prod nuxi generate",
+    "postinstall": "MODE=prod nuxi prepare"
   },
   "dependencies": {
     "@element-plus/icons-vue": "2.1.0",
+    "dotenv": "^16.3.1",
     "element-plus": "2.3.9"
   },
   "devDependencies": {

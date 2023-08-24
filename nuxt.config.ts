@@ -1,3 +1,12 @@
+import dotenv from 'dotenv'
+
+const envConfig = dotenv.config({
+  path: `env/.env${process.env.MODE ? `.${process.env.MODE}` : ''}`
+})
+
+const config = envConfig.parsed
+
+
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   app: {
@@ -16,6 +25,15 @@ export default defineNuxtConfig({
     }
   },
 
+  runtimeConfig: {
+    public: config,
+    app: {
+      baseURL: '/',
+      buildAssetsDir: '/_nuxt/',
+      cdnURL: '',
+    },
+  },
+  
   // css
   css: ['~/assets/scss/index.scss'],
 
