@@ -79,8 +79,8 @@ export const useUserStore = defineStore('users', {
 
           // reset visited views and cached views
           // to fixed https://github.com/PanJiaChen/vue-element-admin/issues/2485
-          const tagsViewStore = useTagsViewStore()
-          tagsViewStore.delAllViews()
+          // const tagsViewStore = useTagsViewStore()
+          // tagsViewStore.delAllViews()
 
           resolve("")
         }).catch(error => {
