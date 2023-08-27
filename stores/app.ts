@@ -1,12 +1,11 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
 import Cookies from "js-cookie";
-import { getLanguage } from '@/languages/index'
 
 export const useAppStore = defineStore("apps", {
   state: () => {
     return {
       sidebar: {
-        opened: true,//!(Cookies.get("sidebarStatus") === "0"),
+        opened: !(Cookies.get("sidebarStatus") === "0"),
         withoutAnimation: false,
       },
       device: "desktop",

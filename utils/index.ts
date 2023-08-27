@@ -41,7 +41,7 @@ export function parseTime(time:any, cFormat:string) {
     i: date.getMinutes(),
     s: date.getSeconds(),
     a: date.getDay()
-  } as NObject
+  } as SNObject
   const time_str = format.replace(/{([ymdhisa])+}/g, (result, key) => {
     const value = formatObj[key] 
     // Note: getDay() returns 0 on Sunday
@@ -105,7 +105,7 @@ export function param2Obj(url: string) {
   }
   const obj = {
     
-  } as AObject
+  } as SSNObject
 
   const searchArr = search.split('&')
   searchArr.forEach(v => {

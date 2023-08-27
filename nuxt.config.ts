@@ -35,7 +35,7 @@ export default defineNuxtConfig({
   },
   
   // css
-  css: ['~/assets/scss/index.scss'],
+  css: ['normalize.css/normalize.css','@/styles/index.scss','@/assets/scss/index.scss'],
 
   typescript: {
     strict: true,
@@ -48,7 +48,8 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@pinia/nuxt',
     '@element-plus/nuxt',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    'nuxt-icon'
   ],
 
   // vueuse
@@ -58,7 +59,14 @@ export default defineNuxtConfig({
 
   // colorMode
   colorMode: {
+    preference: 'system', // default value of $colorMode.preference
+    fallback: 'light', // fallback value if not system preference found
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    componentName: 'ColorScheme',
+    classPrefix: '',
     classSuffix: '',
+    storageKey: 'nuxt-color-mode'
   },
 
   unocss: {

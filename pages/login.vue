@@ -84,11 +84,13 @@ import { useUserStore } from "@/stores/user";
 import { reactive, ref, onMounted, onUnmounted, nextTick } from "vue";
 import { validUsername } from "@/utils/validate";
 import { useRoute, useRouter } from "vue-router";
-import type { FormInstance, InputInstance } from "element-plus";
 
 definePageMeta({
-  key: (route) => route.fullPath,
-  name: "login",
+    key: (route) => route.fullPath,
+    name: "login",
+    title: "Login",
+    icon: "",
+    sidebar: false,
 });
 
 const validateUsername = (rule: any, value: any, callback: any) => {
@@ -118,9 +120,9 @@ const loginRules = reactive({
 
 const usersStore = useUserStore();
 
-const loginFormRef = ref<FormInstance>();
-const usernameRef = ref<InputInstance>();
-const passwordRef = ref<InputInstance>();
+const loginFormRef = ref();
+const usernameRef = ref();
+const passwordRef = ref();
 
 const passwordType = ref("password");
 const capsTooltip = ref(false);
@@ -140,7 +142,7 @@ const getOtherQuery = function (query: any) {
 };
 
 watch(
-  route,
+  () => route.path,
   () => {
     const query = route.query;
 
@@ -201,7 +203,7 @@ const handleLogin = async () => {
     return;
   }
 
-  await loginFormRef.value.validate((valid, fields) => {
+  await loginFormRef.value.validate((valid:boolean, fields:any) => {
     if (valid) {
       loading.value = true;
 

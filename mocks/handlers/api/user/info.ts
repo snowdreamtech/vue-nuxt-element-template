@@ -22,7 +22,6 @@ const users = {
 
 const userInfo = rest.get(serverApi("/info"), async (req, res, ctx) => {
     const token = req.url.searchParams.get("token");
-    console.log("login token: " + token);
   
     if(!token){
       return res(

@@ -1,15 +1,19 @@
-interface Object {
+interface SSNUNVObject {
     [key: string]: string | number | undefined | null | void
 }
 
-interface AObject {
+interface SSNObject {
     [key: string]: string | number
 }
 
-interface SObject {
+interface SSObject {
     [key: string]: string
 }
 
-interface NObject {
+interface SNObject {
     [key: string]: number
+}
+
+interface SAObject {
+    [key: string]: any
 }
