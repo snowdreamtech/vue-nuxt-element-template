@@ -21,9 +21,9 @@ const userLogin = rest.post(serverApi("/login"), async (req, res, ctx) => {
   console.log("login type: " + type);
 
   const data = await req.json<LoginData>();
-  console.log("login data: ");
-  console.log(data);
-  console.log(data.username);
+  // console.log("login data: ");
+  // console.log(data);
+  // console.log(data.username);
 
   if (data.username == "") {
     return res(

@@ -73,7 +73,7 @@ const statusFilter = (status: string):any => {
 const fetchData = async () => {
   listLoading.value = true
   getList({}).then(response => {
-    console.log(response.data.items)
+    // console.log(response.data.items)
     list.value = response.data.items
     listLoading.value = false
   })

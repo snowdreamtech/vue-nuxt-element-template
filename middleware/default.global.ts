@@ -20,7 +20,6 @@ export default defineNuxtRouteMiddleware(async (to: any, from: any) => {
         try {
           // get user info
           await usersStore.getInfo()
-          console.log(usersStore.avatar)
         } catch (err:any) {
           // remove token and go to login page to re-login
           await usersStore.resetToken()
