@@ -1,10 +1,5 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
-import defaultSettings from "@/settings";
-
-const {
-  fixedHeader,
-  sidebarLogo,
-} = defaultSettings;
+import { fixedHeader, sidebarLogo } from "@/settings";
 
 export const useSettingsStore = defineStore("settings", {
   state: () => {

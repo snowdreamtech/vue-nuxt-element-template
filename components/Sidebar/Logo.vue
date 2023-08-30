@@ -14,6 +14,8 @@
 </template>
 
 <script setup lang="ts">
+import { title as defaultTitle } from "@/settings";
+
 const props = defineProps({
   collapse: {
     type: Boolean,
@@ -21,7 +23,7 @@ const props = defineProps({
   }
 })
 
-const title = ref('Vue Nuxt Element Template ')
+const title = ref(defaultTitle)
 const logo = ref('https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png')
 </script>
 

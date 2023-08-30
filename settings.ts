@@ -1,16 +1,14 @@
-export default {
 
-  title: 'Vue Admin Template',
+  export const title =  'Vue Nuxt Admin Template'
 
   /**
    * @type {boolean} true | false
    * @description Whether fix the header
    */
-  fixedHeader: true,
+  export const fixedHeader =  true
 
   /**
    * @type {boolean} true | false
    * @description Whether show the logo in sidebar
    */
-  sidebarLogo: true
-}
+  export const sidebarLogo =   true
