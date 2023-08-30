@@ -1,8 +1,8 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    <!-- <client-only>
+    <client-only>
       <resize-handler></resize-handler>
-    </client-only> -->
+    </client-only>
     <div v-if="device==='mobile'&&appsidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
     <div class="main-container">

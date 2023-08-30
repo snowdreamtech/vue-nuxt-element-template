@@ -15,7 +15,7 @@ const { toggleDevice,closeSideBar  } = appStore;
 
 
 onBeforeMount(() => {
-    window.removeEventListener('resize', resizeHandler)
+    window.addEventListener('resize', resizeHandler)
 })
 
 onMounted(() => {
@@ -24,7 +24,6 @@ onMounted(() => {
         closeSideBar(true)
     }
 })
-
 
 onDeactivated(() => {
     window.removeEventListener('resize', resizeHandler)
