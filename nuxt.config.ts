@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import { title } from "./settings";
+import { title, description } from "./settings";
 
 const envConfig = dotenv.config({
   path: `env/.env${process.env.MODE ? `.${process.env.MODE}` : ''}`
@@ -14,14 +14,14 @@ export default defineNuxtConfig({
     // head
     head: {
       charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
+      viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
       title: title,
       meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
         {
           hid: 'description',
           name: 'description',
-          content: 'ElementPlus + Nuxt3',
+          content: description,
         },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
