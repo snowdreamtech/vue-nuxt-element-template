@@ -20,6 +20,8 @@
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { useAppStore } from '@/stores/app'
 import path from 'path-browserify'
 import { isExternal } from '@/utils/validate'
 // import FixiOSBug from './FixiOSBug'
@@ -40,9 +42,23 @@ const props = defineProps({
   }
 })
 
+onMounted(() => {
+  // In order to fix the click on menu on the ios device will trigger the mouseleave bug
+  // https://github.com/PanJiaChen/vue-element-admin/issues/1135
+  fixBugIniOS()
+})
+
+const appStore = useAppStore()
+
+// You need to use storeToRefs() to extract properties from the store while keeping those properties reactive.
+// https://stackoverflow.com/a/71677026
+const { device } = storeToRefs(appStore);
+
+
 // To fix https://github.com/PanJiaChen/vue-admin-template/issues/237
 // TODO: refactor with render function
 const onlyOneChild = ref()
+const subMenu = ref()
 
 const hasOneShowingChild = function (children = [], parent: any) {
   const showingChildren = children.filter((item: any) => {
@@ -70,6 +86,7 @@ const hasOneShowingChild = function (children = [], parent: any) {
 
   return false
 }
+
 const resolvePath = function (route: any) {
   // console.log(route)
   // console.log(route.path)
@@ -91,5 +108,17 @@ const resolvePath = function (route: any) {
   }
 
   return path.resolve(props.basePath, routePath)
+}
+
+const fixBugIniOS = function () {
+  if (subMenu.value) {
+    const handleMouseleave = subMenu.value.handleMouseleave
+    subMenu.value.handleMouseleave = (e:any) => {
+      if (device.value === 'mobile') {
+        return
+      }
+      handleMouseleave(e)
+    }
+  }
 }
 </script>
