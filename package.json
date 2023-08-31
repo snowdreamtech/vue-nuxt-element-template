@@ -33,6 +33,7 @@
     "@element-plus/nuxt": "1.0.5",
     "@faker-js/faker": "8.0.2",
     "@nuxtjs/color-mode": "3.3.0",
+    "@nuxtjs/i18n": "8.0.0-rc.3",
     "@pinia/nuxt": "0.4.11",
     "@unocss/nuxt": "0.55.2",
     "@vueuse/nuxt": "10.3.0",

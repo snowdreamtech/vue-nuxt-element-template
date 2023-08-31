@@ -1,8 +1,8 @@
 <script setup lang="ts">
 definePageMeta({
   key: route => route.fullPath,
-  name: 'External Link',
-  title: 'External Link',
+  name: 'externalLink',
+  title: 'externalLink',
   icon: 'Link',
   index: 4,
   sidebar: true,

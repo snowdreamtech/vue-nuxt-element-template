@@ -11,8 +11,8 @@
 <script setup lang="ts">
 definePageMeta({
   key: (route) => route.fullPath,
-  name: "Tree",
-  title: "Tree",
+  name: "tree",
+  title: "tree",
   icon: "Expand",
   index: 1,
   sidebar: true,

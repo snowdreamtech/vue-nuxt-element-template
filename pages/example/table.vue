@@ -43,8 +43,8 @@ import { getList } from '@/api/table'
 
 definePageMeta({
   key: (route) => route.fullPath,
-  name: "Table",
-  title: "Table",
+  name: "table",
+  title: "table",
   icon: "Grid",
   index: 0,
   sidebar: true,

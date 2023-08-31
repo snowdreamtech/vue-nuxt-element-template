@@ -51,9 +51,71 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@pinia/nuxt',
     '@element-plus/nuxt',
+    '@nuxtjs/i18n',
     '@nuxtjs/color-mode',
     'nuxt-icon'
   ],
+
+  i18n: {
+    legacy: false,
+    debug: true,
+    locale: "en",
+    defaultLocale: "en",
+    strategy: "no_prefix",
+    // strategy: 'prefix',
+    // strategy: 'prefix_and_default',
+    // strategy: 'prefix_except_default',
+    // rootRedirect: '/ja/about-ja',
+    langDir: "languages",
+    lazy: false,
+    baseUrl: config?.PUBLIC_URL|| 'http://localhost:3000',
+    locales: [
+      {
+       code: "en",
+       files: ["en.ts"],
+      },
+      {
+       code: "zh",
+       files: ["zh.ts"],
+      },
+      {
+       code: "es",
+       files: ["es.ts"],
+      },
+      {
+       code: "ja",
+       files: ["ja.ts"],
+      },
+     ],
+     // customRoutes: 'config',
+     // pages: {
+     //  history: {
+     //   ja: '/history-ja'
+     //  },
+     //  about: {
+     //   ja: '/about-ja'
+     //  }
+     // },
+     // differentDomains: true,
+     skipSettingLocaleOnNavigate: true,
+     detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "language",
+      redirectOn: "root", // recommended
+     },
+     experimental: {
+      jsTsFormatResource: true,
+     },
+     compilation: {
+      // jit: false,
+      strictMessage: false,
+      escapeHtml: true,
+     },
+     bundle: {
+      // dropMessageCompiler: true
+     },
+    vueI18n: './i18n.config.ts',
+  },
 
   // vueuse
   vueuse: {

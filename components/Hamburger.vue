@@ -1,7 +1,7 @@
 <template>
   <div style="padding: 0 15px;" @click="toggleClick">
     <el-icon width="64" height="64" :class="{ 'is-active': isActive }" class="hamburger">
-      <ElIconFold />
+      <ElIconExpand />
     </el-icon>
   </div>
 </template>

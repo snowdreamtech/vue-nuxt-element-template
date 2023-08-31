@@ -6,7 +6,7 @@
 definePageMeta({
   key: (route) => route.fullPath,
   name: "nested",
-  title: "Nested",
+  title: "nested",
   icon: "Menu",
   index: 3,
   sidebar: true,

@@ -10,8 +10,8 @@
 <script setup lang="ts">
 definePageMeta({
   key: (route) => route.fullPath,
-  name: "Menu1-1",
-  title: "Menu1-1",
+  name: "menu1-1",
+  title: "menu1-1",
   icon: "",
   index: 0,
   sidebar: true,

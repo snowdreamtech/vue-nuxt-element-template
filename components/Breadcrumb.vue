@@ -2,10 +2,10 @@
   <el-breadcrumb class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in levelList" :key="item.path">
-        <span v-if="item.redirect === 'noRedirect' || index == levelList.length - 1" class="no-redirect">{{
-          item.meta.title
-        }}</span>
-        <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
+        <span v-if="item.redirect === 'noRedirect' || index == levelList.length - 1" class="no-redirect">
+          {{ t('route.' + item.meta.title) }} 
+        </span>
+        <a v-else @click.prevent="handleLink(item)">{{ t('route.' + item.meta.title) }} </a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -13,6 +13,19 @@
 
 <script setup lang="ts">
 import { compile } from 'path-to-regexp';
+
+const {
+  t,
+  rt,
+  tm,
+  strategy,
+  locale,
+  locales,
+  localeProperties,
+  setLocale,
+  defaultLocale,
+  finalizePendingLocaleChange
+} = useI18n()
 
 const route = useRoute();
 const router = useRouter();
@@ -26,7 +39,7 @@ const getBreadcrumb = () => {
   const first = matched[0]
 
   if (!isDashboard(first)) {
-    let dashboardRouteLocationMatched:any[] = [{ path: '/', meta: { title: 'Dashboard' } }]
+    let dashboardRouteLocationMatched:any[] = [{ path: '/', meta: { title: 'dashboard' } }]
     matched = dashboardRouteLocationMatched.concat(matched)
   }
 

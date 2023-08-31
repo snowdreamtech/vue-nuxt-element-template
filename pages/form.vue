@@ -52,8 +52,8 @@ import { ElMessage } from "element-plus";
 
 definePageMeta({
   key: (route) => route.fullPath,
-  name: "Form",
-  title: "Form",
+  name: "form",
+  title: "form",
   icon: "Edit",
   index: 2,
   sidebar: true,

@@ -9,7 +9,10 @@
       label-position="left"
     >
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <h3 class="title">
+          {{ $t('login.title') }}
+        </h3>
+        <lang-select class="set-language" />
       </div>
 
       <el-form-item prop="username">
@@ -19,7 +22,7 @@
         <el-input
           ref="usernameRef"
           v-model="loginForm.username"
-          placeholder="Username"
+          :placeholder="$t('login.username')"
           name="username"
           type="text"
           tabindex="1"
@@ -42,7 +45,7 @@
             ref="passwordRef"
             v-model="loginForm.password"
             :type="passwordType"
-            placeholder="Password"
+            :placeholder="$t('login.password')"
             name="password"
             tabindex="2"
             autocomplete="on"
@@ -66,13 +69,13 @@
         style="width: 100%; margin-bottom: 30px"
         @click.prevent="handleLogin"
       >
-        Login
+      {{ $t('login.logIn') }}
       </el-button>
 
       <div style="position: relative">
         <div class="tips">
-          <span>username: admin</span>
-          <span>password: any</span>
+          <span>{{ $t('login.username') }} : admin</span>
+          <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
         </div>
       </div>
     </el-form>
@@ -88,7 +91,7 @@ import { useRoute, useRouter } from "vue-router";
 definePageMeta({
     key: (route) => route.fullPath,
     name: "login",
-    title: "Login",
+    title: "login",
     icon: "",
     sidebar: false,
 });
@@ -334,6 +337,15 @@ $light_gray:#eee;
       margin: 0px auto 40px auto;
       text-align: center;
       font-weight: bold;
+    }
+
+    .set-language {
+      color: #fff;
+      position: absolute;
+      top: 3px;
+      font-size: 18px;
+      right: 0px;
+      cursor: pointer;
     }
   }
 

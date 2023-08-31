@@ -6,19 +6,19 @@
         <el-tooltip v-if="collapse&&!isNest" :content="onlyOneChild.meta.title" placement="right">
           <el-menu-item :index="resolvePath(onlyOneChild)" :class="{ 'submenu-title-noDropdown': !isNest }">
             <sidebar-meta-item :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
-              :title="onlyOneChild.meta.title" />
+              :title="t('route.' + onlyOneChild.meta.title)" />
           </el-menu-item>
         </el-tooltip>
         <el-menu-item v-else :index="resolvePath(onlyOneChild)" :class="{ 'submenu-title-noDropdown': !isNest }">
             <sidebar-meta-item :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
-              :title="onlyOneChild.meta.title" />
+              :title="t('route.' + onlyOneChild.meta.title)" />
           </el-menu-item>
       </sidebar-link>
     </template>
     <el-sub-menu v-else ref="subMenu" :index="resolvePath(item)" teleported>
       <template #title>
         <sidebar-meta-item v-if="item.meta && item.meta.sidebar" :icon="item.meta && item.meta.icon"
-          :title="item.meta.title" />
+          :title="t('route.' + item.meta.title)" />
       </template>
       <sidebar-item v-for="child in item.children" :key="child.path" :is-nest="true" :item="child" :collapse="collapse"
         :base-path="resolvePath(child)" class="nest-menu" />
@@ -32,6 +32,19 @@ import { useAppStore } from '@/stores/app'
 import path from 'path-browserify'
 import { isExternal } from '@/utils/validate'
 // import FixiOSBug from './FixiOSBug'
+
+const {
+  t,
+  rt,
+  tm,
+  strategy,
+  locale,
+  locales,
+  localeProperties,
+  setLocale,
+  defaultLocale,
+  finalizePendingLocaleChange
+} = useI18n()
 
 const props = defineProps({
   // route object
