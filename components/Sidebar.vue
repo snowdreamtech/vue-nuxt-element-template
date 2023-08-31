@@ -4,7 +4,7 @@
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu :default-active="activeMenu" :collapse="isCollapse" :background-color="menuBg" :text-color="menuText"
         :unique-opened="false" :active-text-color="menuActiveText" :collapse-transition="false" mode="vertical">
-        <sidebar-item v-for="route in sidebarRoutes" :key="route.path" :item="route" :base-path="route.path" />
+        <sidebar-item v-for="route in sidebarRoutes" :key="route.path" :item="route" :collapse="isCollapse" :base-path="route.path" />
       </el-menu>
     </el-scrollbar>
   </div>
