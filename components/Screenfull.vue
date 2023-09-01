@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-icon @click="click">
+        <el-icon style="height:100%;" @click="click">
             <ElIconFullScreen v-if="isFullscreen" />
             <ElIconRank v-else />
         </el-icon>
