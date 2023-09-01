@@ -63,7 +63,7 @@ const router = useRouter();
 // You need to use storeToRefs() to extract properties from the store while keeping those properties reactive.
 // https://stackoverflow.com/a/71677026
 const { avatar } = storeToRefs(usersStore);
-const { sidebar } = storeToRefs(appStore);
+const { sidebar, device } = storeToRefs(appStore);
 const { toggleSideBar } = appStore;
 
 const logout = async () => {
