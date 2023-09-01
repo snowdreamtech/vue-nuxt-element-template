@@ -20,8 +20,6 @@
 <script setup lang="ts">
 const { locale } = useI18n()
 
-console.log(locale.value)
-console.log(useI18n())
 definePageMeta({
     key: (route) => route.fullPath,
     name: "dashboard",
