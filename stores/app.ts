@@ -4,15 +4,12 @@ import Cookies from "js-cookie";
 export const useAppStore = defineStore("apps", {
 
   state: () => {
-     const { locale, locales } = useI18n()
-
     return {
       sidebar: {
         opened: !(Cookies.get("sidebarStatus") === "0"),
         withoutAnimation: false,
       },
       device: "desktop",
-      language: locale.value,
     };
   },
   getters: {
@@ -34,16 +31,7 @@ export const useAppStore = defineStore("apps", {
     },
     toggleDevice(device: string) {
       this.device = device;
-    },
-    setLanguage(language: string) {
-      const { locale } = useI18n()
-      locale.value = language
-      // const switchLocalePath = useSwitchLocalePath()
-
-      // switchLocalePath(language)
-      this.language = language;
-      // Cookies.set('language', language)
-    },
+    }
   },
 });
 
