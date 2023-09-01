@@ -72,19 +72,19 @@ export default defineNuxtConfig({
     locales: [
       {
        code: "en",
-       files: ["en.ts"],
+       files: ["en-element.ts", "en.ts" ],
       },
       {
        code: "zh",
-       files: ["zh.ts"],
+       files: ["zh-element.ts", "zh.ts" ],
       },
       {
        code: "es",
-       files: ["es.ts"],
+       files: ["es-element.ts", "es.ts" ],
       },
       {
        code: "ja",
-       files: ["ja.ts"],
+       files: ["ja-element.ts", "ja.ts" ],
       },
      ],
      // customRoutes: 'config',
