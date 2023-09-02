@@ -1,3 +1,3 @@
-// variables.scss.d.ts
+// variables.module.scss.d.ts
 export const variables : any
 export default variables
