@@ -15,7 +15,7 @@
 // import { storeToRefs } from 'pinia'
 import { useAppStore } from "@/stores/app";
 import { useSettingsStore } from "@/stores/settings";
-import variables from "@/styles/variables.scss";
+import variables from "@/styles/variables.module.scss";
 import type { RouteRecordRaw } from 'vue-router';
 
 // How to share variables between JS and SCSS? 
@@ -23,8 +23,6 @@ import type { RouteRecordRaw } from 'vue-router';
 //https://sergiocarracedo.es/2020/07/17/sharing-variables-between-scss-and-typescript/
 
 const { menuText, menuActiveText, subMenuActiveText, menuBg, menuHover, subMenuBg, subMenuHover, sideBarWidth } = variables
-
-// console.log(menuBg)
 
 const appStore = useAppStore();
 const settingsStore = useSettingsStore();

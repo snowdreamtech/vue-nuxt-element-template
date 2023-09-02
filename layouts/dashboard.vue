@@ -48,7 +48,7 @@ const handleClickOutside = function () {
 
 <style lang="scss" scoped>
   @import "@/styles/mixin.scss";
-  @import "@/styles/variables.scss";
+  @import "@/styles/variables.module.scss";
   @import "@/styles/index.scss";
 
 .app-wrapper {

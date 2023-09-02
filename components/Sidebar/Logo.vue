@@ -42,8 +42,8 @@ const logo = ref('https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef525
   width: 100%;
   height: 50px;
   line-height: 50px;
-  // background: #2b2f3a;
-  background: var(--el-menu-bg-color);
+  background: #2b2f3a;
+  // background: var(--el-menu-bg-color);
   text-align: center;
   overflow: hidden;
 
