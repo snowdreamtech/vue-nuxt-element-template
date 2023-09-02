@@ -16,15 +16,6 @@ import { compile } from 'path-to-regexp';
 
 const {
   t,
-  rt,
-  tm,
-  strategy,
-  locale,
-  locales,
-  localeProperties,
-  setLocale,
-  defaultLocale,
-  finalizePendingLocaleChange
 } = useI18n()
 
 const route = useRoute();

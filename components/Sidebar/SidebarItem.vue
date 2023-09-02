@@ -31,19 +31,9 @@ import { storeToRefs } from 'pinia'
 import { useAppStore } from '@/stores/app'
 import path from 'path-browserify'
 import { isExternal } from '@/utils/validate'
-// import FixiOSBug from './FixiOSBug'
 
 const {
   t,
-  rt,
-  tm,
-  strategy,
-  locale,
-  locales,
-  localeProperties,
-  setLocale,
-  defaultLocale,
-  finalizePendingLocaleChange
 } = useI18n()
 
 const props = defineProps({

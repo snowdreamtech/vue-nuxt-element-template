@@ -3,12 +3,28 @@ import { title as defaultTitle } from "@/settings";
 
 const route = useRoute();
 
+const {
+  t,
+  te,
+} = useI18n()
+
+const getPageTitle = ( title : any ) : string=>{
+  const pageMetaTitle = route.meta.title
+
+  if(!pageMetaTitle || !te(`route.${pageMetaTitle}`)){
+    return t(title)
+  }
+
+  return t(`route.${pageMetaTitle}`) + " - " + t(title)
+}
+
 useHead({
   title: defaultTitle,
   titleTemplate: ( title : any):string => {
-    return title ? `${ route.meta.title } - ${ title }` : title
+    return getPageTitle(title)    
   }
 })
+
 </script>
 
 <template>
