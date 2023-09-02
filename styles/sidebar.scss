@@ -10,8 +10,8 @@
   .sidebar-container {
     transition: width 0.28s;
     width: $sideBarWidth !important;
-    // background-color: $menuBg;
-    background-color: var(--el-menu-bg-color);
+    background-color: $menuBg;
+    // background-color: var(--el-menu-bg-color);
     height: 100%;
     position: fixed;
     font-size: 0px;
@@ -73,24 +73,24 @@
     .submenu-title-noDropdown,
     .el-sub-menu__title {
       &:hover {
-        // background-color: $menuHover !important;
-        background-color: var(--el-menu-hover-bg-color);
+        background-color: $menuHover !important;
+        // background-color: var(--el-menu-hover-bg-color);
       }
     }
 
-    // .is-active>.el-sub-menu__title {
-    //   color: $subMenuActiveText !important;
-    // }
+    .is-active>.el-sub-menu__title {
+      color: $subMenuActiveText !important;
+    }
 
     & .nest-menu .el-sub-menu>.el-sub-menu__title,
     & .el-sub-menu .el-menu-item {
       min-width: $sideBarWidth !important;
-      // background-color: $subMenuBg !important;
-      background-color: var(--el-menu-bg-color);
+      background-color: $subMenuBg !important;
+      // background-color: var(--el-menu-bg-color);
 
       &:hover {
-        // background-color: $subMenuHover !important;
-        background-color: var(--el-menu-hover-bg-color);
+        background-color: $subMenuHover !important;
+        // background-color: var(--el-menu-hover-bg-color);
       }
     }
   }
@@ -234,8 +234,8 @@
   .el-menu-item {
     &:hover {
       // you can use $subMenuHover
-      // background-color: $menuHover !important;
-      background-color: var(--el-menu-hover-bg-color);
+      background-color: $menuHover !important;
+      // background-color: var(--el-menu-hover-bg-color);
     }
   }
 
