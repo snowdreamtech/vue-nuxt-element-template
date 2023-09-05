@@ -29,7 +29,7 @@ useHead({
 
 <template>
   <NuxtLayout>
-      <NuxtLoadingIndicator />
+      <NuxtLoadingIndicator :throttle="0" />
     <NuxtPage />
   </NuxtLayout>
 </template>
