@@ -7,9 +7,21 @@ const envConfig = dotenv.config({
 
 const config = envConfig.parsed
 
+//https://github.com/nuxt/nuxt/issues/13803#issuecomment-1397316950
+const spa = process.env.MODE === 'prod' || process.argv.includes("--spa");
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
+  ssr: !spa,
+
+  nitro: {
+    prerender: {
+      crawlLinks: false,
+      ignore: [],
+      routes: [],
+    },
+  },
+
   app: {
     // head
     head: {
