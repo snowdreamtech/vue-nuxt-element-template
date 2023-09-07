@@ -99,6 +99,12 @@ export default defineNuxtConfig({
         },
       },
     },
+    resolve: {
+      alias: {
+        timers: 'rollup-plugin-node-polyfills/polyfills/timers',
+        path: 'rollup-plugin-node-polyfills/polyfills/path',
+      },
+    }, 
   },
   elementPlus: {
     icon: 'ElIcon',
