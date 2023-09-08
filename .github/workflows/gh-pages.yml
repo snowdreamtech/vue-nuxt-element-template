@@ -51,7 +51,7 @@ jobs:
         run: pnpm install --no-frozen-lockfile && pnpm msw
 
       - name: Build
-        run: pnpm generate
+        run: pnpm generate && touch .output/public/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
