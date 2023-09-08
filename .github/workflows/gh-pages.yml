@@ -3,7 +3,7 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - gh-page  
+      - gh-pages  
     tags:
       - '*'
   workflow_dispatch:
@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: gh-page
+          ref: gh-pages
 
       - name: Setup Node
         uses: actions/setup-node@v3
