@@ -23,6 +23,9 @@ export default defineNuxtConfig({
   },
 
   app: {
+    baseURL: '/vue-nuxt-element-template/',
+    buildAssetsDir: 'assets',
+
     // head
     head: {
       charset: "utf-8",
@@ -48,8 +51,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: config,
     app: {
-      baseURL: "/",
-      buildAssetsDir: "/_nuxt/",
+      baseURL: '/vue-nuxt-element-template/',
+      buildAssetsDir: 'assets',
       cdnURL: "",
     },
   },
