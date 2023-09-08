@@ -13,11 +13,7 @@ export default defineNuxtPlugin(async () => {
       const { worker } = await import('../mocks/browser')
       await worker.start({
         serviceWorker: {
-          options: {
-            // Narrow the scope of the Service Worker to intercept requests
-            // only from pages under this path.
-            scope: '/vue-nuxt-element-template/'
-          }
+          url: '/vue-nuxt-element-template/mockServiceWorker.js',
         },
         onUnhandledRequest: "bypass",
       })
