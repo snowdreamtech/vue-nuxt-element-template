@@ -3,7 +3,9 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - main
+      - gh-page  
+    tags:
+      - '*'
   workflow_dispatch:
 
 permissions:
@@ -21,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: i18n-dark-sidebar
+          ref: gh-page
 
       - name: Setup Node
         uses: actions/setup-node@v3
