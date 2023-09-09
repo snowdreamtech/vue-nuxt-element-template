@@ -10,11 +10,10 @@ on:
 
 permissions:
   contents: read
-  pages: write
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: "main"
   cancel-in-progress: true
 
 jobs:
