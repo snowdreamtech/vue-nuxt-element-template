@@ -23,8 +23,10 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: '/vue-nuxt-element-template/',
-    buildAssetsDir: 'assets',
+    baseURL: config?.BASE_URL?config.BASE_URL:"/",
+    buildAssetsDir: config?.BUILD_ASSETS_DIR?config.BUILD_ASSETS_DIR:"/_nuxt/",
+    cdnURL: config?.CDN_URL?config.CDN_URL:"",
+    
 
     // head
     head: {
@@ -51,9 +53,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: config,
     app: {
-      baseURL: '/vue-nuxt-element-template/',
-      buildAssetsDir: 'assets',
-      cdnURL: "",
+      baseURL: config?.BASE_URL?config.BASE_URL:"/",
+      buildAssetsDir: config?.BUILD_ASSETS_DIR?config.BUILD_ASSETS_DIR:"/_nuxt/",
+      cdnURL: config?.CDN_URL?config.CDN_URL:"",  
     },
   },
 
@@ -92,7 +94,6 @@ export default defineNuxtConfig({
     // rootRedirect: '/ja/about-ja',
     langDir: "languages",
     lazy: false,
-    baseUrl: config?.PUBLIC_URL || "http://localhost:3000",
     locales: [
       {
         code: "en",

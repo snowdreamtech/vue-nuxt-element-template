@@ -1,5 +1,3 @@
-const baseurl = "http://localhost:8080"
-
 const serverResponse = ( code :string = "SUCCESS", message : string = "", data :any = "") => {
     const response = {
         "version": "0.1",
