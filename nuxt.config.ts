@@ -23,6 +23,10 @@ export default defineNuxtConfig({
   },
 
   app: {
+    baseURL: config?.BASE_URL?config.BASE_URL:"/",
+    buildAssetsDir: config?.BUILD_ASSETS_DIR?config.BUILD_ASSETS_DIR:"/_nuxt/",
+    cdnURL: config?.CDN_URL?config.CDN_URL:"",
+    
     // head
     head: {
       charset: "utf-8",
@@ -48,9 +52,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: config,
     app: {
-      baseURL: "/",
-      buildAssetsDir: "/_nuxt/",
-      cdnURL: "",
+      baseURL: config?.BASE_URL?config.BASE_URL:"/",
+      buildAssetsDir: config?.BUILD_ASSETS_DIR?config.BUILD_ASSETS_DIR:"/_nuxt/",
+      cdnURL: config?.CDN_URL?config.CDN_URL:"",
     },
   },
 
@@ -89,7 +93,6 @@ export default defineNuxtConfig({
     // rootRedirect: '/ja/about-ja',
     langDir: "languages",
     lazy: false,
-    baseUrl: config?.PUBLIC_URL || "http://localhost:3000",
     locales: [
       {
         code: "en",

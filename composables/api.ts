@@ -3,11 +3,23 @@ import { ElMessage } from 'element-plus'
 
 export function useAPI() {
   const config = useRuntimeConfig()
-  console.log("config.public.BASE_URL: "+config.public.BASE_URL)
+
+  let baseURL:string='/'
+  
+  if (config.public.MOCK==="msw") {
+    baseURL='/'
+  }else{
+    if (config?.public.BASE_API_URL) {
+      baseURL = config.public.BASE_API_URL
+    }else{
+      baseURL = "http://localhost:8080"
+    }
+  }
+
   const apifetch = $fetch.create({
     credentials: 'include',
     keepalive:true,
-    baseURL: config.public.BASE_URL,
+    baseURL: baseURL,
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
