@@ -10,11 +10,10 @@ on:
 
 permissions:
   contents: read
-  pages: write
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: "i18n-dark-sidebar"
   cancel-in-progress: true
 
 jobs:
