@@ -1,5 +1,8 @@
+import path from 'path-browserify'
+
 export default defineNuxtPlugin(async () => {
   const config = useRuntimeConfig()
+  const baseURL = config?.public.BASE_URL?config.public.BASE_URL as string:"/"
 
   console.log(config.public.MOCK)
   
@@ -13,7 +16,7 @@ export default defineNuxtPlugin(async () => {
       const { worker } = await import('../mocks/browser')
       await worker.start({
         serviceWorker: {
-          url: '/vue-nuxt-element-template/mockServiceWorker.js',
+          url: path.resolve(baseURL, 'mockServiceWorker.js'),
         },
         onUnhandledRequest: "bypass",
       })
