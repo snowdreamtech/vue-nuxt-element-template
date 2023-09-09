@@ -1,8 +1,6 @@
-
-const baseurl = "http://localhost:8080"
-
 const serverApi = (path :string) => {
-    return new URL(path,  baseurl).toString()
+    // return new URL(path,  baseURL).toString()
+    return path
 }
 
 export default serverApi
