@@ -172,6 +172,15 @@ export default defineNuxtConfig({
     },
   },
 
+  // options for @nuxt/devtools
+  devtools: {
+    // Enable devtools (default: true)
+    enabled: process.env.MODE === 'dev',
+    // VS Code Server options
+    vscode: {},
+    // ...other options
+  },
+
   unocss: {
     uno: true,
     attributify: true,
