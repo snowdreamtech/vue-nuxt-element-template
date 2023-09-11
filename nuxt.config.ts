@@ -70,6 +70,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/devtools',
     "@nuxtjs/robots",
+    '@nuxtjs/eslint-module',
     'nuxt-icon'
   ],
 
@@ -109,6 +110,12 @@ export default defineNuxtConfig({
     // VS Code Server options
     vscode: {},
     // ...other options
+  },
+
+  // options for @nuxtjs/eslint-module 
+  // https://nuxt.com/modules/eslint
+  eslint: {
+    /* module options */
   },
 
   unocss: {
