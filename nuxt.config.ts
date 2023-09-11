@@ -68,6 +68,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@element-plus/nuxt',
     '@nuxtjs/color-mode',
+    "@nuxtjs/robots",
     'nuxt-icon'
   ],
 
@@ -86,6 +87,18 @@ export default defineNuxtConfig({
     classPrefix: '',
     classSuffix: '',
     storageKey: 'nuxt-color-mode'
+  },
+
+  // options for @nuxtjs/robots
+  robots: {
+    /* module options */
+    // https://github.com/nuxt-modules/robots/issues/97
+    // https://github.com/nuxt-modules/robots/pull/103
+    rules:
+     {
+      UserAgent: "*",
+      Allow: "/",
+    },
   },
 
   unocss: {
