@@ -79,6 +79,7 @@ export default defineNuxtConfig({
     "@element-plus/nuxt",
     "@nuxtjs/i18n",
     "@nuxtjs/color-mode",
+    '@nuxt/devtools',
     "@nuxtjs/robots",
     "nuxt-icon",
   ],
