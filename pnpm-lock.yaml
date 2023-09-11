@@ -37,6 +37,9 @@ devDependencies:
   '@nuxtjs/color-mode':
     specifier: 3.3.0
     version: 3.3.0
+  '@nuxtjs/robots':
+    specifier: ^3.0.0
+    version: 3.0.0
   '@pinia/nuxt':
     specifier: 0.4.11
     version: 0.4.11(typescript@5.2.2)
@@ -1186,6 +1189,16 @@ packages:
       '@nuxt/kit': 3.7.0
       lodash.template: 4.5.0
       pathe: 1.1.1
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
+  /@nuxtjs/robots@3.0.0:
+    resolution: {integrity: sha512-qsHGW1KXBvV5Kq7u3huPnFCUTbHS4Fk8Za2mNPgmUXcwLgp3exvhPtdZfIdjrCF/aZk3A8OZONNmGghs6CecBA==}
+    dependencies:
+      '@nuxt/kit': 3.7.1
+      h3: 1.8.1
     transitivePeerDependencies:
       - rollup
       - supports-color
