@@ -68,6 +68,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@element-plus/nuxt',
     '@nuxtjs/color-mode',
+    '@nuxt/devtools',
     "@nuxtjs/robots",
     'nuxt-icon'
   ],
@@ -99,6 +100,15 @@ export default defineNuxtConfig({
       UserAgent: "*",
       Allow: "/",
     },
+  },
+
+  // options for @nuxt/devtools
+  devtools: {
+    // Enable devtools (default: true)
+    enabled: process.env.MODE === 'dev',
+    // VS Code Server options
+    vscode: {},
+    // ...other options
   },
 
   unocss: {
