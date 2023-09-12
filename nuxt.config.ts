@@ -112,10 +112,17 @@ export default defineNuxtConfig({
     // ...other options
   },
 
-  // options for @nuxtjs/eslint-module 
+  // options for @nuxtjs/eslint-module
   // https://nuxt.com/modules/eslint
   eslint: {
-    /* module options */
+    cache: true,
+    lintOnStart: true,
+    emitWarning: false,
+    emitError: false,
+    failOnWarning: false,
+    failOnError: false,
+    eslintPath: 'eslint',
+    formatter: 'stylish',
   },
 
   unocss: {
