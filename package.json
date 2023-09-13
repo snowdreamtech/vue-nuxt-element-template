@@ -1,13 +1,13 @@
 {
-  "name": "element-plus-nuxt-starter",
-  "packageManager": "pnpm@8.6.2",
+  "name": "vue-nuxt-element-template",
+  "packageManager": "pnpm@8.7.5",
   "version": "0.1.0",
-  "description": "Element Plus with Nuxt 3 Minimal Starter",
+  "description": "Vue3+Nuxt3+Element Plus（template）",
   "repository": {
     "type": "git",
-    "url": "git://github.com/element-plus/element-plus-nuxt-starter"
+    "url": "git@github.com:snowdreamtech/vue-nuxt-element-template.git"
   },
-  "author": "Element Plus Team",
+  "author": "SnowdreamTech",
   "license": "MIT",
   "private": true,
   "scripts": {
