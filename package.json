@@ -37,7 +37,7 @@
     "@nuxt/devtools": "0.8.3",
     "@nuxtjs/color-mode": "3.3.0",
     "@nuxtjs/eslint-module": "4.1.0",
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/eslint-config-typescript": "12.1.0",
     "@nuxtjs/i18n": "8.0.0-rc.4",
     "@nuxtjs/robots": "3.0.0",
     "@pinia/nuxt": "0.4.11",
