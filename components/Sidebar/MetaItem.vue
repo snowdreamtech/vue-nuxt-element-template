@@ -1,5 +1,5 @@
 <template>
-  <component v-if="iconcomponent" :is="iconcomponent" class="sub-el-icon" />
+  <component :is="iconcomponent" v-if="iconcomponent" class="sub-el-icon" />
 
   <Icon v-if="!iconcomponent && icon" :name="icon" class="sub-el-icon" />
 

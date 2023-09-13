@@ -5,7 +5,7 @@ const getMain = rest.get(serverApi('/'), (req, res, ctx) => {
   return res(
     ctx.json({
       ok: true,
-      message: 'sccuess',
+      message: 'sccuess'
     })
   )
 })

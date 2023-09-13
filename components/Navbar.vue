@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
+    <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggle-click="toggleSideBar" />
 
     <breadcrumb class="breadcrumb-container" />
 
@@ -13,7 +13,6 @@
         </el-tooltip> -->
 
         <lang-select class="right-menu-item hover-effect" />
-
       </template>
 
       <el-dropdown class="avatar-container" trigger="click">
@@ -46,25 +45,23 @@
   </div>
 </template>
 
-
-
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useAppStore } from "@/stores/app"
-import { useUserStore } from "@/stores/user";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute, useRouter } from 'vue-router'
+import { useAppStore } from '@/stores/app'
+import { useUserStore } from '@/stores/user'
 
 const appStore = useAppStore()
-const usersStore = useUserStore();
+const usersStore = useUserStore()
 
-const route = useRoute();
-const router = useRouter();
+const route = useRoute()
+const router = useRouter()
 
 // You need to use storeToRefs() to extract properties from the store while keeping those properties reactive.
 // https://stackoverflow.com/a/71677026
-const { avatar } = storeToRefs(usersStore);
-const { sidebar, device } = storeToRefs(appStore);
-const { toggleSideBar } = appStore;
+const { avatar } = storeToRefs(usersStore)
+const { sidebar, device } = storeToRefs(appStore)
+const { toggleSideBar } = appStore
 
 const logout = async () => {
   await usersStore.logout()

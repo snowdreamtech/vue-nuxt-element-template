@@ -1,39 +1,54 @@
 <template>
   <div v-if="!item.hidden">
     <template
-      v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow">
+      v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow"
+    >
       <sidebar-link v-if="onlyOneChild.meta && onlyOneChild.meta.sidebar" :to="resolvePath(onlyOneChild)">
         <el-tooltip v-if="collapse&&!isNest" :content="onlyOneChild.meta.title" placement="right">
           <el-menu-item :index="resolvePath(onlyOneChild)" :class="{ 'submenu-title-noDropdown': !isNest }">
-            <sidebar-meta-item :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
-              :title="t('route.' + onlyOneChild.meta.title)" />
+            <sidebar-meta-item
+              :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
+              :title="t('route.' + onlyOneChild.meta.title)"
+            />
           </el-menu-item>
         </el-tooltip>
         <el-menu-item v-else :index="resolvePath(onlyOneChild)" :class="{ 'submenu-title-noDropdown': !isNest }">
-            <sidebar-meta-item :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
-              :title="t('route.' + onlyOneChild.meta.title)" />
-          </el-menu-item>
+          <sidebar-meta-item
+            :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
+            :title="t('route.' + onlyOneChild.meta.title)"
+          />
+        </el-menu-item>
       </sidebar-link>
     </template>
     <el-sub-menu v-else ref="subMenu" :index="resolvePath(item)" teleported>
       <template #title>
-        <sidebar-meta-item v-if="item.meta && item.meta.sidebar" :icon="item.meta && item.meta.icon"
-          :title="t('route.' + item.meta.title)" />
+        <sidebar-meta-item
+          v-if="item.meta && item.meta.sidebar"
+          :icon="item.meta && item.meta.icon"
+          :title="t('route.' + item.meta.title)"
+        />
       </template>
-      <sidebar-item v-for="child in item.children" :key="child.path" :is-nest="true" :item="child" :collapse="collapse"
-        :base-path="resolvePath(child)" class="nest-menu" />
+      <sidebar-item
+        v-for="child in item.children"
+        :key="child.path"
+        :is-nest="true"
+        :item="child"
+        :collapse="collapse"
+        :base-path="resolvePath(child)"
+        class="nest-menu"
+      />
     </el-sub-menu>
   </div>
 </template>
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useAppStore } from '@/stores/app'
 import path from 'path-browserify'
+import { useAppStore } from '@/stores/app'
 import { isExternal } from '@/utils/validate'
 
 const {
-  t,
+  t
 } = useI18n()
 
 const props = defineProps({
@@ -66,8 +81,7 @@ const appStore = useAppStore()
 
 // You need to use storeToRefs() to extract properties from the store while keeping those properties reactive.
 // https://stackoverflow.com/a/71677026
-const { device } = storeToRefs(appStore);
-
+const { device } = storeToRefs(appStore)
 
 // To fix https://github.com/PanJiaChen/vue-admin-template/issues/237
 // TODO: refactor with render function

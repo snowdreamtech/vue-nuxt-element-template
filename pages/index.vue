@@ -3,17 +3,25 @@
     <Logos />
     <Examples />
     <div>
-    <form>
-      <select v-model="locale">
-        <option value="zh">zh</option>
-        <option value="en">en</option>
-        <option value="es">es</option>
-        <option value="ja">ja</option>
-      </select>
-      <p>{{ $t('welcome') }}</p>
-      <p>{{ $t('route.dashboard') }}</p>
-    </form>
-  </div>
+      <form>
+        <select v-model="locale">
+          <option value="zh">
+            zh
+          </option>
+          <option value="en">
+            en
+          </option>
+          <option value="es">
+            es
+          </option>
+          <option value="ja">
+            ja
+          </option>
+        </select>
+        <p>{{ $t('welcome') }}</p>
+        <p>{{ $t('route.dashboard') }}</p>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -21,14 +29,14 @@
 const { locale } = useI18n()
 
 definePageMeta({
-    key: (route) => route.fullPath,
-    name: "dashboard",
-    title: "dashboard",
-    icon: "Compass",
-    index: 0,
-    sidebar: true,
-    layout: "dashboard",
-});
+  key: route => route.fullPath,
+  name: 'dashboard',
+  title: 'dashboard',
+  icon: 'Compass',
+  index: 0,
+  sidebar: true,
+  layout: 'dashboard'
+})
 </script>
 
 <style>
