@@ -12,13 +12,13 @@
   "private": true,
   "scripts": {
     "dev": "MODE=dev nuxi dev",
-    "lint": "eslint --fix --ext .js,.ts,.vue .",
     "stage": "MODE=staging nuxi dev",
     "build": "MODE=prod nuxi build",
     "preview": "MODE=prod nuxi preview",
     "start": "MODE=prod node .output/server/index.mjs",
     "generate": "MODE=prod nuxi generate",
     "postinstall": "MODE=prod nuxi prepare",
+    "lint": "eslint --fix --ext .js,.ts,.vue .",
     "msw": "npx msw init public/ --save"
   },
   "dependencies": {
