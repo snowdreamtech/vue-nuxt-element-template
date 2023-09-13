@@ -1,31 +1,31 @@
-import { acceptHMRUpdate, defineStore } from "pinia";
-import { fixedHeader, sidebarLogo } from "@/settings";
+import { acceptHMRUpdate, defineStore } from 'pinia'
+import { fixedHeader, sidebarLogo } from '@/settings'
 
-export const useSettingsStore = defineStore("settings", {
+export const useSettingsStore = defineStore('settings', {
   state: () => {
     return {
       fixedHeader,
-      sidebarLogo,
-    };
+      sidebarLogo
+    }
   },
   getters: {},
   actions: {
-    changeSetting(data: { [key: string]: any }) {
+    changeSetting (data: { [key: string]: any }) {
       switch (data.key) {
-        case "fixedHeader":
+        case 'fixedHeader':
           this.fixedHeader = data.value
-          break;
-        case "sidebarLogo":
+          break
+        case 'sidebarLogo':
           this.sidebarLogo = data.value
-          break;
+          break
         default:
-          break;
+          break
       }
-    },
-  },
-});
+    }
+  }
+})
 
 // 确保传递正确的 store 声明，本例中为 `useSettingsStore`
 if (import.meta.hot) {
-  import.meta.hot.accept(acceptHMRUpdate(useSettingsStore, import.meta.hot));
+  import.meta.hot.accept(acceptHMRUpdate(useSettingsStore, import.meta.hot))
 }

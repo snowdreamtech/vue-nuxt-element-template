@@ -1,7 +1,7 @@
 <template>
   <div :class="classObj" class="app-wrapper">
     <client-only>
-      <resize-handler></resize-handler>
+      <resize-handler />
     </client-only>
     <div v-if="device==='mobile'&&appsidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
@@ -16,17 +16,17 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useAppStore } from "@/stores/app"
-import { useSettingsStore } from "@/stores/settings";
+import { useAppStore } from '@/stores/app'
+import { useSettingsStore } from '@/stores/settings'
 
 const appStore = useAppStore()
-const settingsStore = useSettingsStore();
+const settingsStore = useSettingsStore()
 
 // You need to use storeToRefs() to extract properties from the store while keeping those properties reactive.
 // https://stackoverflow.com/a/71677026
-const { device } = storeToRefs(appStore);
-const { fixedHeader } = storeToRefs(settingsStore);
-const { closeSideBar } = appStore;
+const { device } = storeToRefs(appStore)
+const { fixedHeader } = storeToRefs(settingsStore)
+const { closeSideBar } = appStore
 
 const appsidebar = computed(() => {
   return appStore.sidebar
@@ -34,10 +34,10 @@ const appsidebar = computed(() => {
 
 const classObj = computed(() => {
   return {
-      hideSidebar: !appsidebar.value.opened,
-      openSidebar: appsidebar.value.opened,
-      withoutAnimation: appsidebar.value.withoutAnimation,
-      mobile: device.value === 'mobile'
+    hideSidebar: !appsidebar.value.opened,
+    openSidebar: appsidebar.value.opened,
+    withoutAnimation: appsidebar.value.withoutAnimation,
+    mobile: device.value === 'mobile'
   }
 })
 

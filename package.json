@@ -12,6 +12,7 @@
   "private": true,
   "scripts": {
     "dev": "MODE=dev nuxi dev",
+    "lint": "eslint --fix --ext .js,.ts,.vue .",
     "stage": "MODE=staging nuxi dev",
     "build": "MODE=prod nuxi build",
     "preview": "MODE=prod nuxi preview",

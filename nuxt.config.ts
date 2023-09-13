@@ -1,14 +1,14 @@
-import dotenv from "dotenv";
-import { title, description } from "./settings";
+import { config } from 'dotenv'
+import { title, description } from './settings'
 
-const envConfig = dotenv.config({
-  path: `env/.env${process.env.MODE ? `.${process.env.MODE}` : ""}`,
-});
+const envConfig = config({
+  path: `env/.env${process.env.MODE ? `.${process.env.MODE}` : ''}`
+})
 
-const config = envConfig.parsed;
+const conf = envConfig.parsed
 
-//https://github.com/nuxt/nuxt/issues/13803#issuecomment-1397316950
-const spa = process.env.MODE === 'prod' || process.argv.includes("--spa");
+// https://github.com/nuxt/nuxt/issues/13803#issuecomment-1397316950
+const spa = process.env.MODE === 'prod' || process.argv.includes('--spa')
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
@@ -18,101 +18,101 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: false,
       ignore: [],
-      routes: [],
-    },
+      routes: []
+    }
   },
 
   app: {
-    baseURL: config?.BASE_URL?config.BASE_URL:"/",
-    buildAssetsDir: config?.BUILD_ASSETS_DIR?config.BUILD_ASSETS_DIR:"/_nuxt/",
-    cdnURL: config?.CDN_URL?config.CDN_URL:"",
+    baseURL: conf?.BASE_URL ? conf.BASE_URL : '/',
+    buildAssetsDir: conf?.BUILD_ASSETS_DIR ? conf.BUILD_ASSETS_DIR : '/_nuxt/',
+    cdnURL: conf?.CDN_URL ? conf.CDN_URL : '',
 
     // head
     head: {
-      charset: "utf-8",
+      charset: 'utf-8',
       viewport:
-        "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
-      title: title,
+        'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
+      title,
       meta: [
         {
-          name: "viewport",
+          name: 'viewport',
           content:
-            "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
+            'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
         },
         {
-          hid: "description",
-          name: "description",
-          content: description,
-        },
+          hid: 'description',
+          name: 'description',
+          content: description
+        }
       ],
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-    },
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    }
   },
 
   runtimeConfig: {
-    public: config,
+    public: conf,
     app: {
-      baseURL: config?.BASE_URL?config.BASE_URL:"/",
-      buildAssetsDir: config?.BUILD_ASSETS_DIR?config.BUILD_ASSETS_DIR:"/_nuxt/",
-      cdnURL: config?.CDN_URL?config.CDN_URL:"",
-    },
+      baseURL: conf?.BASE_URL ? conf.BASE_URL : '/',
+      buildAssetsDir: conf?.BUILD_ASSETS_DIR ? conf.BUILD_ASSETS_DIR : '/_nuxt/',
+      cdnURL: conf?.CDN_URL ? conf.CDN_URL : ''
+    }
   },
 
   // css
   css: [
-    "normalize.css/normalize.css",
-    "@/styles/index.scss",
-    "@/assets/scss/index.scss",
+    'normalize.css/normalize.css',
+    '@/styles/index.scss',
+    '@/assets/scss/index.scss'
   ],
 
   typescript: {
     strict: true,
-    shim: false,
+    shim: false
   },
 
   // build modules
   modules: [
-    "@vueuse/nuxt",
-    "@unocss/nuxt",
-    "@pinia/nuxt",
-    "@element-plus/nuxt",
-    "@nuxtjs/i18n",
-    "@nuxtjs/color-mode",
+    '@vueuse/nuxt',
+    '@unocss/nuxt',
+    '@pinia/nuxt',
+    '@element-plus/nuxt',
+    '@nuxtjs/i18n',
+    '@nuxtjs/color-mode',
     '@nuxt/devtools',
-    "@nuxtjs/robots",
+    '@nuxtjs/robots',
     '@nuxtjs/eslint-module',
-    "nuxt-icon",
+    'nuxt-icon'
   ],
 
   i18n: {
     legacy: false,
     debug: true,
-    locale: "en",
-    defaultLocale: "en",
-    strategy: "no_prefix",
+    locale: 'en',
+    defaultLocale: 'en',
+    strategy: 'no_prefix',
     // strategy: 'prefix',
     // strategy: 'prefix_and_default',
     // strategy: 'prefix_except_default',
     // rootRedirect: '/ja/about-ja',
-    langDir: "languages",
+    langDir: 'languages',
     lazy: false,
     locales: [
       {
-        code: "en",
-        files: ["en-element.ts", "en.ts"],
+        code: 'en',
+        files: ['en-element.ts', 'en.ts']
       },
       {
-        code: "zh",
-        files: ["zh-element.ts", "zh.ts"],
+        code: 'zh',
+        files: ['zh-element.ts', 'zh.ts']
       },
       {
-        code: "es",
-        files: ["es-element.ts", "es.ts"],
+        code: 'es',
+        files: ['es-element.ts', 'es.ts']
       },
       {
-        code: "ja",
-        files: ["ja-element.ts", "ja.ts"],
-      },
+        code: 'ja',
+        files: ['ja-element.ts', 'ja.ts']
+      }
     ],
     // customRoutes: 'config',
     // pages: {
@@ -127,38 +127,38 @@ export default defineNuxtConfig({
     skipSettingLocaleOnNavigate: true,
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: "language",
-      redirectOn: "root", // recommended
+      cookieKey: 'language',
+      redirectOn: 'root' // recommended
     },
     experimental: {
-      jsTsFormatResource: true,
+      jsTsFormatResource: true
     },
     compilation: {
       // jit: false,
       strictMessage: false,
-      escapeHtml: true,
+      escapeHtml: true
     },
     bundle: {
       // dropMessageCompiler: true
     },
-    vueI18n: "./i18n.config.ts",
+    vueI18n: './i18n.config.ts'
   },
 
   // vueuse
   vueuse: {
-    ssrHandlers: true,
+    ssrHandlers: true
   },
 
   // colorMode
   colorMode: {
-    preference: "system", // default value of $colorMode.preference
-    fallback: "light", // fallback value if not system preference found
-    hid: "nuxt-color-mode-script",
-    globalName: "__NUXT_COLOR_MODE__",
-    componentName: "ColorScheme",
-    classPrefix: "",
-    classSuffix: "",
-    storageKey: "nuxt-color-mode",
+    preference: 'system', // default value of $colorMode.preference
+    fallback: 'light', // fallback value if not system preference found
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    componentName: 'ColorScheme',
+    classPrefix: '',
+    classSuffix: '',
+    storageKey: 'nuxt-color-mode'
   },
 
   // options for @nuxtjs/robots
@@ -168,9 +168,9 @@ export default defineNuxtConfig({
     // https://github.com/nuxt-modules/robots/pull/103
     rules:
      {
-      UserAgent: "*",
-      Allow: "/",
-    },
+       UserAgent: '*',
+       Allow: '/'
+     }
   },
 
   // options for @nuxt/devtools
@@ -178,7 +178,7 @@ export default defineNuxtConfig({
     // Enable devtools (default: true)
     enabled: process.env.MODE === 'dev',
     // VS Code Server options
-    vscode: {},
+    vscode: {}
     // ...other options
   },
 
@@ -187,39 +187,39 @@ export default defineNuxtConfig({
   eslint: {
     cache: true,
     lintOnStart: true,
-    emitWarning: false,
-    emitError: false,
-    failOnWarning: false,
-    failOnError: false,
+    emitWarning: true,
+    emitError: true,
+    failOnWarning: true,
+    failOnError: true,
     eslintPath: 'eslint',
-    formatter: 'stylish',
+    formatter: 'stylish'
   },
 
   unocss: {
     uno: true,
     attributify: true,
     icons: {
-      scale: 1.2,
-    },
+      scale: 1.2
+    }
   },
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "@/assets/scss/element/index.scss" as element;`,
-        },
-      },
+          additionalData: '@use "@/assets/scss/element/index.scss" as element;'
+        }
+      }
     },
     resolve: {
       alias: {
         timers: 'rollup-plugin-node-polyfills/polyfills/timers',
-        path: 'rollup-plugin-node-polyfills/polyfills/path',
-      },
-    }, 
+        path: 'rollup-plugin-node-polyfills/polyfills/path'
+      }
+    }
   },
   elementPlus: {
-    icon: "ElIcon",
-    importStyle: "scss",
-    themes: ["dark"],
-  },
-});
+    icon: 'ElIcon',
+    importStyle: 'scss',
+    themes: ['dark']
+  }
+})

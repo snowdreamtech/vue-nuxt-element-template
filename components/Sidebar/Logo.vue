@@ -3,18 +3,22 @@
     <transition name="sidebarLogoFade">
       <nuxt-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
         <img v-if="logo" :src="logo" class="sidebar-logo">
-        <h1 v-else class="sidebar-title">{{ title }} </h1>
+        <h1 v-else class="sidebar-title">
+          {{ title }}
+        </h1>
       </nuxt-link>
       <nuxt-link v-else key="expand" class="sidebar-logo-link" to="/">
         <img v-if="logo" :src="logo" class="sidebar-logo">
-        <h1 class="sidebar-title">{{ title }} </h1>
+        <h1 class="sidebar-title">
+          {{ title }}
+        </h1>
       </nuxt-link>
     </transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import { title as defaultTitle } from "@/settings";
+import { title as defaultTitle } from '@/settings'
 
 const props = defineProps({
   collapse: {

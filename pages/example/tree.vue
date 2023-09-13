@@ -2,31 +2,36 @@
   <div class="page-index">
     <el-input v-model="filterText" placeholder="Filter keyword" style="margin-bottom:30px;" />
 
-    <el-tree ref="tree2Ref" :data="data2" :props="defaultProps" :filter-node-method="filterNode" class="filter-tree"
-      default-expand-all />
-
+    <el-tree
+      ref="tree2Ref"
+      :data="data2"
+      :props="defaultProps"
+      :filter-node-method="filterNode"
+      class="filter-tree"
+      default-expand-all
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-  key: (route) => route.fullPath,
-  name: "tree",
-  title: "tree",
-  icon: "Expand",
+  key: route => route.fullPath,
+  name: 'tree',
+  title: 'tree',
+  icon: 'Expand',
   index: 1,
   sidebar: true,
-  layout: "dashboard",
-});
-
-const tree2Ref = ref();
-
-const defaultProps = reactive({
-    children: 'children',
-    label: 'label'
+  layout: 'dashboard'
 })
 
-const filterText = ref("");
+const tree2Ref = ref()
+
+const defaultProps = reactive({
+  children: 'children',
+  label: 'label'
+})
+
+const filterText = ref('')
 
 const data2 = reactive([{
   id: 1,
@@ -65,12 +70,12 @@ const data2 = reactive([{
 }])
 
 const filterNode = (value: any, data: any) => {
-  if (!value) return true
-  return data.label.indexOf(value) !== -1
-};
+  if (!value) { return true }
+  return data.label.includes(value)
+}
 
-watch(filterText, async (newFilterText, oldFilterText) => {
-    tree2Ref.value.filter(newFilterText)
+watch(filterText, async (newFilterText: any, oldFilterText: any) => {
+  await tree2Ref.value.filter(newFilterText)
 })
 </script>
 
