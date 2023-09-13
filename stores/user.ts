@@ -9,51 +9,51 @@ export const useUserStore = defineStore('users', {
       name: '' as string,
       avatar: '' as string,
       introduction: '' as string,
-      roles: [] as string[],
+      roles: [] as string[]
     }
   },
   getters: {
-    isLogin: (state) => state.token != undefined && state.token != "" 
+    isLogin: state => state.token !== undefined && state.token !== ''
   },
   actions: {
 
     // user login
-    login(userInfo: any) {
+    login (userInfo: any) {
       const { username, password } = userInfo
       return new Promise((resolve, reject) => {
-        login({ username: username.trim(), password: password }).then(response => {
+        login({ username: username.trim(), password }).then((response) => {
           const { data } = response
           this.token = data
           setToken(data)
 
           resolve(data)
-        }).catch(error => {
+        }).catch((error) => {
           reject(error)
         })
       })
     },
 
     // get user info
-    getInfo() {
+    getInfo () {
       return new Promise((resolve: (value: any) => void, reject: (reason?: any) => void) => {
         this.token = getToken()
 
         if (!this.token) {
-          reject("token is empty")
+          reject(new Error('token is empty'))
         }
 
-        getInfo(this.token as string).then(response => {
+        getInfo(this.token as string).then((response) => {
           const { data } = response
 
           if (!data) {
-            reject('Verification failed, please Login again.')
+            reject(new Error('Verification failed, please Login again.'))
           }
 
           const { roles, name, avatar, introduction } = data
 
           // roles must be a non-empty array
           if (!roles || roles.length <= 0) {
-            reject('getInfo: roles must be a non-null array!')
+            reject(new Error('getInfo: roles must be a non-null array!'))
           }
 
           this.roles = roles
@@ -61,16 +61,15 @@ export const useUserStore = defineStore('users', {
           this.avatar = avatar
           this.introduction = introduction
           resolve(data)
-        }).catch(error => {
+        }).catch((error) => {
           reject(error)
         })
       })
     },
 
     // user logout
-    logout() {
+    logout () {
       return new Promise((resolve, reject) => {
-
         logout().then(() => {
           this.token = ''
           this.roles = []
@@ -82,25 +81,25 @@ export const useUserStore = defineStore('users', {
           // const tagsViewStore = useTagsViewStore()
           // tagsViewStore.delAllViews()
 
-          resolve("")
-        }).catch(error => {
+          resolve('')
+        }).catch((error) => {
           reject(error)
         })
       })
     },
 
     // remove token
-    resetToken() {
-      return new Promise(resolve => {
+    resetToken () {
+      return new Promise((resolve) => {
         this.token = ''
         this.roles = []
         removeToken()
-        resolve("")
+        resolve('')
       })
     },
 
     // dynamically modify permissions
-    async changeRoles(role: string) {
+    changeRoles (role: string) {
       const token = role + '-token'
 
       this.token = token
@@ -117,7 +116,7 @@ export const useUserStore = defineStore('users', {
       // const tagsViewStore = useTagsViewStore()
       // tagsViewStore.delAllViews()
     }
-  },
+  }
 })
 
 // 确保传递正确的 store 声明，本例中为 `useUserStore`

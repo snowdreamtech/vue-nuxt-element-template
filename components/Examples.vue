@@ -1,7 +1,7 @@
 <template>
-  <el-switch v-model="colorMode" inline-prompt active-text="dark" inactive-text="light" size="large"></el-switch>
+  <el-switch v-model="colorMode" inline-prompt active-text="dark" inactive-text="light" size="large" />
 
-  <br />
+  <br>
 
   <el-dropdown class="m-4" type="primary">
     <el-button type="primary">
@@ -21,17 +21,23 @@
     </template>
   </el-dropdown>
 
-  <br />
+  <br>
 
-  <el-button :icon="ElIconView" class="m-4" @click="hello">Hello</el-button>
-  <el-button class="m-4" type="primary" @click="hello">Hello</el-button>
-  <el-button class="m-4" type="success" @click="helloSuccess">Hello</el-button>
+  <el-button :icon="ElIconView" class="m-4" @click="hello">
+    Hello
+  </el-button>
+  <el-button class="m-4" type="primary" @click="hello">
+    Hello
+  </el-button>
+  <el-button class="m-4" type="success" @click="helloSuccess">
+    Hello
+  </el-button>
 
-  <br />
+  <br>
 
   <Counter class="m-4" />
 
-  <br />
+  <br>
 
   <el-icon class="cursor-pointer">
     <el-icon-grape />
@@ -43,7 +49,7 @@
     <ElIconIceDrink />
   </el-icon>
 
-  <br />
+  <br>
 
   <el-config-provider :locale="zhCn">
     <el-date-picker
@@ -55,15 +61,15 @@
 </template>
 
 <script setup lang="ts">
-import zhCn from "element-plus/es/locale/lang/zh-cn";
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
-const timeValue = ref("");
-const hello = () => ElMessage.info("hello world");
-const helloSuccess = () => ElMessage.success("hello world");
+const timeValue = ref('')
+const hello = () => ElMessage.info('hello world')
+const helloSuccess = () => ElMessage.success('hello world')
 
-const color = useColorMode();
+const color = useColorMode()
 const colorMode = computed({
   get: () => color.value === 'dark',
-  set: () => (color.preference = color.value === 'dark' ? 'light' : 'dark'),
-});
+  set: () => (color.preference = color.value === 'dark' ? 'light' : 'dark')
+})
 </script>

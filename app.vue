@@ -1,27 +1,27 @@
 <script setup lang="ts">
-import { title as defaultTitle } from "@/settings";
+import { title as defaultTitle } from '@/settings'
 
-const route = useRoute();
+const route = useRoute()
 
 const {
   t,
-  te,
+  te
 } = useI18n()
 
-const getPageTitle = ( title : any ) : string=>{
+const getPageTitle = (title : any) : string => {
   const pageMetaTitle = route.meta.title
 
-  if(!pageMetaTitle || !te(`route.${pageMetaTitle}`)){
+  if (!pageMetaTitle || !te(`route.${pageMetaTitle}`)) {
     return t(title)
   }
 
-  return t(`route.${pageMetaTitle}`) + " - " + t(title)
+  return t(`route.${pageMetaTitle}`) + ' - ' + t(title)
 }
 
 useHead({
   title: defaultTitle,
-  titleTemplate: ( title : any):string => {
-    return getPageTitle(title)    
+  titleTemplate: (title : any):string => {
+    return getPageTitle(title)
   }
 })
 
@@ -29,11 +29,10 @@ useHead({
 
 <template>
   <NuxtLayout>
-      <NuxtLoadingIndicator :throttle="0" />
+    <NuxtLoadingIndicator :throttle="0" />
     <NuxtPage />
   </NuxtLayout>
 </template>
-
 
 <style lang="scss">
 .grayscale {

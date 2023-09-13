@@ -1,5 +1,5 @@
-import { useUserStore } from '@/stores/user'
 import { ElMessage } from 'element-plus'
+import { useUserStore } from '@/stores/user'
 import { getToken } from '@/utils/auth' // get token from cookie
 
 const whiteList = ['/login', '/register', '/404', '/500', '/'] // no redirect whitelist
@@ -28,15 +28,10 @@ export default defineNuxtRouteMiddleware(async (to: any, from: any) => {
         }
       }
     }
-    console.log('已经登录')
-  } else {
-    console.log('未登录')
-
-    if (whiteList.indexOf(to.path) !== -1) {
-      // in the free login whitelist, go directly
-    } else {
-      // other pages that do not have permission to access are redirected to the login page.
-      return navigateTo(`/login?redirect=${to.path}`)
-    }
+    // console.log('已经登录')
+  } else if (!whiteList.includes(to.path)) {
+    // console.log('未登录')
+    // other pages that do not have permission to access are redirected to the login page.
+    return navigateTo(`/login?redirect=${to.path}`)
   }
 })

@@ -1,21 +1,21 @@
 <template>
-    <section class="app-main">
-        <nuxt-page v-slot="{ Component }"  >
-            <transition name="fade-transform" mode="out-in">
-                <component :is="Component" :key="key" />
-            </transition>
-        </nuxt-page>
-    </section>
+  <section class="app-main">
+    <nuxt-page v-slot="{ Component }">
+      <transition name="fade-transform" mode="out-in">
+        <component :is="Component" :key="key" />
+      </transition>
+    </nuxt-page>
+  </section>
 </template>
-  
+
 <script setup lang="ts">
-const route = useRoute();
+const route = useRoute()
 
 const key = computed(() => {
-    return route.path
+  return route.path
 })
 </script>
-  
+
 <style lang="scss" scoped>
 
 .app-main {

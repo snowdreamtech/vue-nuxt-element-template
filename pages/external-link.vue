@@ -6,7 +6,7 @@ definePageMeta({
   icon: 'Link',
   index: 4,
   sidebar: true,
-  layout: "dashboard",
-  link: 'https://github.com/snowdreamtech/vue-nuxt-element-template',
+  layout: 'dashboard',
+  link: 'https://github.com/snowdreamtech/vue-nuxt-element-template'
 })
 </script>

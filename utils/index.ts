@@ -8,7 +8,7 @@
  * @param {string} cFormat
  * @returns {string | null}
  */
-export function parseTime(time:any, cFormat:string) {
+export function parseTime (time:any, cFormat:string) {
   if (arguments.length === 0 || !time) {
     return null
   }
@@ -24,7 +24,7 @@ export function parseTime(time:any, cFormat:string) {
       } else {
         // support safari
         // https://stackoverflow.com/questions/4310953/invalid-date-in-safari
-        time = time.replace(new RegExp(/-/gm), '/')
+        time = time.replace(/-/gm, '/')
       }
     }
 
@@ -42,13 +42,13 @@ export function parseTime(time:any, cFormat:string) {
     s: date.getSeconds(),
     a: date.getDay()
   } as SNObject
-  const time_str = format.replace(/{([ymdhisa])+}/g, (result, key) => {
-    const value = formatObj[key] 
+  const timeStr = format.replace(/{([ymdhisa])+}/g, (result, key) => {
+    const value = formatObj[key]
     // Note: getDay() returns 0 on Sunday
-    if (key === 'a') { return ['日', '一', '二', '三', '四', '五', '六'][value ] }
+    if (key === 'a') { return ['日', '一', '二', '三', '四', '五', '六'][value] }
     return value.toString().padStart(2, '0')
   })
-  return time_str
+  return timeStr
 }
 
 /**
@@ -56,7 +56,7 @@ export function parseTime(time:any, cFormat:string) {
  * @param {string} option
  * @returns {string}
  */
-export function formatTime(time:any, option: string) {
+export function formatTime (time:any, option: string) {
   if (('' + time).length === 10) {
     time = parseInt(time) * 1000
   } else {
@@ -98,17 +98,17 @@ export function formatTime(time:any, option: string) {
  * @param {string} url
  * @returns {Object}
  */
-export function param2Obj(url: string) {
+export function param2Obj (url: string) {
   const search = decodeURIComponent(url.split('?')[1]).replace(/\+/g, ' ')
   if (!search) {
     return {}
   }
   const obj = {
-    
+
   } as SSNObject
 
   const searchArr = search.split('&')
-  searchArr.forEach(v => {
+  searchArr.forEach((v) => {
     const index = v.indexOf('=')
     if (index !== -1) {
       const name = v.substring(0, index)

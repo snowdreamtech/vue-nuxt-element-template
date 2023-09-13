@@ -54,11 +54,11 @@
             @keyup.enter="handleLogin"
           />
           <span class="show-pwd" @click="showPwd">
-            <el-icon >
+            <el-icon>
               <ElIconView v-if="passwordType == 'password'" />
               <ElIconHide v-else />
             </el-icon>
-            
+
           </span>
         </el-form-item>
       </el-tooltip>
@@ -69,7 +69,7 @@
         style="width: 100%; margin-bottom: 30px"
         @click.prevent="handleLogin"
       >
-      {{ $t('login.logIn') }}
+        {{ $t('login.logIn') }}
       </el-button>
 
       <div style="position: relative">
@@ -83,153 +83,153 @@
 </template>
 
 <script setup lang="ts">
-import { useUserStore } from "@/stores/user";
-import { reactive, ref, onMounted, onUnmounted, nextTick } from "vue";
-import { validUsername } from "@/utils/validate";
-import { useRoute, useRouter } from "vue-router";
+import { reactive, ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user'
+import { validUsername } from '@/utils/validate'
 
 definePageMeta({
-    key: (route) => route.fullPath,
-    name: "login",
-    title: "login",
-    icon: "",
-    sidebar: false,
-});
+  key: route => route.fullPath,
+  name: 'login',
+  title: 'login',
+  icon: '',
+  sidebar: false
+})
 
 const validateUsername = (rule: any, value: any, callback: any) => {
   if (!validUsername(value)) {
-    callback(new Error("Please enter the correct user name"));
+    callback(new Error('Please enter the correct user name'))
   } else {
-    callback();
+    callback()
   }
-};
+}
 const validatePassword = (rule: any, value: any, callback: any) => {
   if (value.length < 6) {
-    callback(new Error("The password can not be less than 6 digits"));
+    callback(new Error('The password can not be less than 6 digits'))
   } else {
-    callback();
+    callback()
   }
-};
+}
 
 const loginForm = reactive({
-  username: "admin",
-  password: "111111",
-});
+  username: 'admin',
+  password: '111111'
+})
 
 const loginRules = reactive({
-  username: [{ required: true, trigger: "blur", validator: validateUsername }],
-  password: [{ required: true, trigger: "blur", validator: validatePassword }],
-});
+  username: [{ required: true, trigger: 'blur', validator: validateUsername }],
+  password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+})
 
-const usersStore = useUserStore();
+const usersStore = useUserStore()
 
-const loginFormRef = ref();
-const usernameRef = ref();
-const passwordRef = ref();
+const loginFormRef = ref()
+const usernameRef = ref()
+const passwordRef = ref()
 
-const passwordType = ref("password");
-const capsTooltip = ref(false);
-const loading = ref(false);
-const redirect = ref("/");
-let otherQuery = reactive({});
-const route = useRoute();
-const router = useRouter();
+const passwordType = ref('password')
+const capsTooltip = ref(false)
+const loading = ref(false)
+const redirect = ref('/')
+let otherQuery = reactive({})
+const route = useRoute()
+const router = useRouter()
 
 const getOtherQuery = function (query: any) {
   return Object.keys(query).reduce((acc: any, cur) => {
-    if (cur !== "redirect") {
-      acc[cur] = query[cur];
+    if (cur !== 'redirect') {
+      acc[cur] = query[cur]
     }
-    return acc;
-  }, {});
-};
+    return acc
+  }, {})
+}
 
 watch(
   () => route.path,
   () => {
-    const query = route.query;
+    const query = route.query
 
     if (query) {
-      redirect.value = query.redirect as string;
-      otherQuery = getOtherQuery(query);
+      redirect.value = query.redirect as string
+      otherQuery = getOtherQuery(query)
     }
   },
   {
-    immediate: true,
+    immediate: true
   }
-);
+)
 
 // window.addEventListener('storage', afterQRScan)
 
 onMounted(() => {
-  if (loginForm.username === "") {
+  if (loginForm.username === '') {
     nextTick(() => {
       if (usernameRef.value) {
-        usernameRef.value.focus();
+        usernameRef.value.focus()
       }
-    });
-  } else if (loginForm.password === "") {
+    })
+  } else if (loginForm.password === '') {
     nextTick(() => {
       if (passwordRef.value) {
-        passwordRef.value.focus();
+        passwordRef.value.focus()
       }
-    });
+    })
   }
-});
+})
 
 onUnmounted(() => {
   // window.removeEventListener('storage', afterQRScan)
-});
+})
 
 const checkCapslock = function (e: any) {
-  const { key } = e;
-  capsTooltip.value = key && key.length === 1 && key >= "A" && key <= "Z";
-};
+  const { key } = e
+  capsTooltip.value = key && key.length === 1 && key >= 'A' && key <= 'Z'
+}
 
-const showPwd = async () => {
+const showPwd = () => {
   // console.log(passwordType.value);
-  if (passwordType.value === "password") {
-    passwordType.value = "";
+  if (passwordType.value === 'password') {
+    passwordType.value = ''
   } else {
-    passwordType.value = "password";
+    passwordType.value = 'password'
   }
 
   nextTick(() => {
     if (passwordRef.value) {
-      passwordRef.value.focus();
+      passwordRef.value.focus()
     }
-  });
-};
+  })
+}
 
 const handleLogin = async () => {
   if (!loginFormRef.value) {
-    return;
+    return
   }
 
   await loginFormRef.value.validate((valid:boolean, fields:any) => {
     if (valid) {
-      loading.value = true;
+      loading.value = true
 
-      const nuxtApp = useNuxtApp();
-      nuxtApp.callHook("page:start");
+      const nuxtApp = useNuxtApp()
+      nuxtApp.callHook('page:start')
 
       usersStore
         .login(loginForm)
         .then(() => {
-          nuxtApp.callHook("page:finish");
-          router.push({ path: redirect.value || "/", query: otherQuery });
-          loading.value = false;
+          nuxtApp.callHook('page:finish')
+          router.push({ path: redirect.value || '/', query: otherQuery })
+          loading.value = false
         })
         .catch(() => {
-          nuxtApp.callHook("page:finish");
-          loading.value = false;
-        });
+          nuxtApp.callHook('page:finish')
+          loading.value = false
+        })
     } else {
-      console.log("error submit!!");
-      return false;
+      // console.log('error submit!!')
+      return false
     }
-  });
-};
+  })
+}
 </script>
 
 <style lang="scss">

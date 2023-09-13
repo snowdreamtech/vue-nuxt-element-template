@@ -3,7 +3,7 @@
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in levelList" :key="item.path">
         <span v-if="item.redirect === 'noRedirect' || index == levelList.length - 1" class="no-redirect">
-          {{ t('route.' + item.meta.title) }} 
+          {{ t('route.' + item.meta.title) }}
         </span>
         <a v-else @click.prevent="handleLink(item)">{{ t('route.' + item.meta.title) }} </a>
       </el-breadcrumb-item>
@@ -12,17 +12,16 @@
 </template>
 
 <script setup lang="ts">
-import { compile } from 'path-to-regexp';
+import { compile } from 'path-to-regexp'
 
 const {
-  t,
+  t
 } = useI18n()
 
-const route = useRoute();
-const router = useRouter();
+const route = useRoute()
+const router = useRouter()
 
 const levelList = ref()
-
 
 const getBreadcrumb = () => {
   // only show routes with meta.title
@@ -30,7 +29,7 @@ const getBreadcrumb = () => {
   const first = matched[0]
 
   if (!isDashboard(first)) {
-    let dashboardRouteLocationMatched:any[] = [{ path: '/', meta: { title: 'dashboard' } }]
+    const dashboardRouteLocationMatched:any[] = [{ path: '/', meta: { title: 'dashboard' } }]
     matched = dashboardRouteLocationMatched.concat(matched)
   }
 
@@ -41,13 +40,12 @@ watch(
   () => route.path,
   () => {
     getBreadcrumb()
-  },
-);
+  }
+)
 
 onMounted(() => {
   getBreadcrumb()
 })
-
 
 const isDashboard = (route: any): boolean => {
   const name = route && route.name
@@ -55,13 +53,12 @@ const isDashboard = (route: any): boolean => {
     return false
   }
   return name.trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
-
 }
 
 const pathCompile = (path: any) => {
   // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
   const { params } = route
-  var toPath = compile(path)
+  const toPath = compile(path)
   return toPath(params)
 }
 
@@ -76,7 +73,6 @@ const handleLink = (item: any) => {
 }
 
 </script>
-
 
 <style lang="scss" scoped>
 .app-breadcrumb.el-breadcrumb {
