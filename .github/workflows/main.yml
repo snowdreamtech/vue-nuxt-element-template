@@ -48,12 +48,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: ESLint
-        run: pnpm lint
-
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
+      - name: ESLint
+        run: pnpm lint
+        
       - name: Generate msw js file
         run: pnpm msw
 
