@@ -88,7 +88,7 @@ export default defineNuxtConfig({
 
   i18n: {
     legacy: false,
-    debug: debug,
+    debug,
     locale: 'en',
     defaultLocale: 'en',
     strategy: 'no_prefix',
