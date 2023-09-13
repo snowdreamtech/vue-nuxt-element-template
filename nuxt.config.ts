@@ -1,14 +1,14 @@
-import dotenv from 'dotenv'
-import { title, description } from "./settings";
+import { config } from 'dotenv'
+import { title, description } from './settings'
 
-const envConfig = dotenv.config({
+const envConfig = config({
   path: `env/.env${process.env.MODE ? `.${process.env.MODE}` : ''}`
 })
 
-const config = envConfig.parsed
+const conf = envConfig.parsed
 
-//https://github.com/nuxt/nuxt/issues/13803#issuecomment-1397316950
-const spa = process.env.MODE === 'prod' || process.argv.includes("--spa");
+// https://github.com/nuxt/nuxt/issues/13803#issuecomment-1397316950
+const spa = process.env.MODE === 'prod' || process.argv.includes('--spa')
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
@@ -18,47 +18,47 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: false,
       ignore: [],
-      routes: [],
-    },
+      routes: []
+    }
   },
 
   app: {
-    baseURL: config?.BASE_URL?config.BASE_URL:"/",
-    buildAssetsDir: config?.BUILD_ASSETS_DIR?config.BUILD_ASSETS_DIR:"/_nuxt/",
-    cdnURL: config?.CDN_URL?config.CDN_URL:"",  
-    
+    baseURL: conf?.BASE_URL ? conf.BASE_URL : '/',
+    buildAssetsDir: conf?.BUILD_ASSETS_DIR ? conf.BUILD_ASSETS_DIR : '/_nuxt/',
+    cdnURL: conf?.CDN_URL ? conf.CDN_URL : '',
+
     // head
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
-      title: title,
+      title,
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
         {
           hid: 'description',
           name: 'description',
-          content: description,
-        },
+          content: description
+        }
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
     }
   },
 
   runtimeConfig: {
-    public: config,
+    public: conf,
     app: {
-      baseURL: config?.BASE_URL?config.BASE_URL:"/",
-      buildAssetsDir: config?.BUILD_ASSETS_DIR?config.BUILD_ASSETS_DIR:"/_nuxt/",
-      cdnURL: config?.CDN_URL?config.CDN_URL:"",  
-    },
+      baseURL: conf?.BASE_URL ? conf.BASE_URL : '/',
+      buildAssetsDir: conf?.BUILD_ASSETS_DIR ? conf.BUILD_ASSETS_DIR : '/_nuxt/',
+      cdnURL: conf?.CDN_URL ? conf.CDN_URL : ''
+    }
   },
-  
+
   // css
-  css: ['normalize.css/normalize.css','@/styles/index.scss','@/assets/scss/index.scss'],
+  css: ['normalize.css/normalize.css', '@/styles/index.scss', '@/assets/scss/index.scss'],
 
   typescript: {
     strict: true,
-    shim: false,
+    shim: false
   },
 
   // build modules
@@ -69,14 +69,14 @@ export default defineNuxtConfig({
     '@element-plus/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/devtools',
-    "@nuxtjs/robots",
+    '@nuxtjs/robots',
     '@nuxtjs/eslint-module',
     'nuxt-icon'
   ],
 
   // vueuse
   vueuse: {
-    ssrHandlers: true,
+    ssrHandlers: true
   },
 
   // colorMode
@@ -98,9 +98,9 @@ export default defineNuxtConfig({
     // https://github.com/nuxt-modules/robots/pull/103
     rules:
      {
-      UserAgent: "*",
-      Allow: "/",
-    },
+       UserAgent: '*',
+       Allow: '/'
+     }
   },
 
   // options for @nuxt/devtools
@@ -108,7 +108,7 @@ export default defineNuxtConfig({
     // Enable devtools (default: true)
     enabled: process.env.MODE === 'dev',
     // VS Code Server options
-    vscode: {},
+    vscode: {}
     // ...other options
   },
 
@@ -117,39 +117,39 @@ export default defineNuxtConfig({
   eslint: {
     cache: true,
     lintOnStart: true,
-    emitWarning: false,
-    emitError: false,
-    failOnWarning: false,
-    failOnError: false,
+    emitWarning: true,
+    emitError: true,
+    failOnWarning: true,
+    failOnError: true,
     eslintPath: 'eslint',
-    formatter: 'stylish',
+    formatter: 'stylish'
   },
 
   unocss: {
     uno: true,
     attributify: true,
     icons: {
-      scale: 1.2,
-    },
+      scale: 1.2
+    }
   },
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "@/assets/scss/element/index.scss" as element;`,
-        },
-      },
+          additionalData: '@use "@/assets/scss/element/index.scss" as element;'
+        }
+      }
     },
     resolve: {
       alias: {
         timers: 'rollup-plugin-node-polyfills/polyfills/timers',
-        path: 'rollup-plugin-node-polyfills/polyfills/path',
-      },
-    }, 
+        path: 'rollup-plugin-node-polyfills/polyfills/path'
+      }
+    }
   },
   elementPlus: {
     icon: 'ElIcon',
     importStyle: 'scss',
-    themes: ['dark'],
-  },
+    themes: ['dark']
+  }
 })
