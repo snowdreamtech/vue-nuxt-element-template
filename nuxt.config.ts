@@ -10,6 +10,8 @@ const conf = envConfig.parsed
 // https://github.com/nuxt/nuxt/issues/13803#issuecomment-1397316950
 const spa = process.env.MODE === 'prod' || process.argv.includes('--spa')
 
+const debug = process.env.MODE === 'dev'
+
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   ssr: !spa,
@@ -86,7 +88,7 @@ export default defineNuxtConfig({
 
   i18n: {
     legacy: false,
-    debug: true,
+    debug: debug,
     locale: 'en',
     defaultLocale: 'en',
     strategy: 'no_prefix',
@@ -176,7 +178,7 @@ export default defineNuxtConfig({
   // options for @nuxt/devtools
   devtools: {
     // Enable devtools (default: true)
-    enabled: process.env.MODE === 'dev',
+    enabled: debug,
     // VS Code Server options
     vscode: {}
     // ...other options
