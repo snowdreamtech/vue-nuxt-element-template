@@ -14,7 +14,9 @@
         <el-col :span="11">
           <el-date-picker v-model="Form.date1" type="date" placeholder="Pick a date" style="width: 100%" />
         </el-col>
-        <el-col :span="2" class="line">-</el-col>
+        <el-col :span="2" class="line">
+          -
+        </el-col>
         <el-col :span="11">
           <el-time-picker v-model="Form.date2" type="fixed-time" placeholder="Pick a time" style="width: 100%" />
         </el-col>
@@ -40,47 +42,51 @@
         <el-input v-model="Form.desc" type="textarea" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">Create</el-button>
-        <el-button @click="onCancel">Cancel</el-button>
+        <el-button type="primary" @click="onSubmit">
+          Create
+        </el-button>
+        <el-button @click="onCancel">
+          Cancel
+        </el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ElMessage } from "element-plus";
+import { ElMessage } from 'element-plus'
 
 definePageMeta({
-  key: (route) => route.fullPath,
-  name: "Form",
-  title: "Form",
-  icon: "Edit",
+  key: route => route.fullPath,
+  name: 'Form',
+  title: 'Form',
+  icon: 'Edit',
   index: 2,
   sidebar: true,
-  layout: "dashboard",
-});
+  layout: 'dashboard'
+})
 
 const Form = reactive({
-  name: "",
-  region: "",
-  date1: "",
-  date2: "",
+  name: '',
+  region: '',
+  date1: '',
+  date2: '',
   delivery: false,
   type: [],
-  resource: "",
-  desc: "",
-});
+  resource: '',
+  desc: ''
+})
 
-const onSubmit = async () => {
-  ElMessage("submit!");
-};
+const onSubmit = () => {
+  ElMessage('submit!')
+}
 
-const onCancel = async () => {
+const onCancel = () => {
   ElMessage({
-    message: "cancel!",
-    type: "warning",
-  });
-};
+    message: 'cancel!',
+    type: 'warning'
+  })
+}
 </script>
 
 <style lang="scss" scoped>

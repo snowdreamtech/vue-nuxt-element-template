@@ -1,4 +1,3 @@
-
 <template>
   <div style="padding:30px;">
     <el-alert :closable="false" title="menu 1-2" type="success">
@@ -6,16 +5,15 @@
     </el-alert>
   </div>
 </template>
-  
+
 <script setup lang="ts">
 definePageMeta({
-  key: (route) => route.fullPath,
-  name: "Menu1-2",
-  title: "Menu1-2",
-  icon: "",
+  key: route => route.fullPath,
+  name: 'Menu1-2',
+  title: 'Menu1-2',
+  icon: '',
   index: 1,
   sidebar: true,
-  layout: "dashboard",
-});
+  layout: 'dashboard'
+})
 </script>
-  

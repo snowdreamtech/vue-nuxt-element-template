@@ -7,14 +7,14 @@
 
 <script setup lang="ts">
 definePageMeta({
-    key: (route) => route.fullPath,
-    name: "dashboard",
-    title: "Dashboard",
-    icon: "Compass",
-    index: 0,
-    sidebar: true,
-    layout: "dashboard",
-});
+  key: route => route.fullPath,
+  name: 'dashboard',
+  title: 'Dashboard',
+  icon: 'Compass',
+  index: 0,
+  sidebar: true,
+  layout: 'dashboard'
+})
 </script>
 
 <style>

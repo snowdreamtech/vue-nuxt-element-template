@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-const emit = defineEmits(['toggleClick'])
+const emit = defineEmits(['toggle-click'])
 
 const props = defineProps({
   isActive: {
@@ -17,11 +17,10 @@ const props = defineProps({
 })
 
 const toggleClick = () => {
-  emit('toggleClick')
+  emit('toggle-click')
 }
 
 </script>
-
 
 <style scoped>
 .hamburger {

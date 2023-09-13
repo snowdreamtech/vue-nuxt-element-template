@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { title as defaultTitle } from "@/settings";
+import { title as defaultTitle } from '@/settings'
 
-const route = useRoute();
+const route = useRoute()
 
 useHead({
   title: defaultTitle,
-  titleTemplate: ( title : any):string => {
-    return title ? `${ route.meta.title } - ${ title }` : title
+  titleTemplate: (title : any):string => {
+    return title ? `${route.meta.title} - ${title}` : title
   }
 })
 </script>
@@ -17,7 +17,6 @@ useHead({
     <NuxtPage />
   </NuxtLayout>
 </template>
-
 
 <style lang="scss">
 .grayscale {
