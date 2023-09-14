@@ -73,6 +73,7 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
     '@nuxtjs/robots',
     '@nuxtjs/eslint-module',
+    '@nuxtjs/stylelint-module',
     'nuxt-icon'
   ],
 
@@ -125,6 +126,19 @@ export default defineNuxtConfig({
     failOnError: true,
     eslintPath: 'eslint',
     formatter: 'stylish'
+  },
+
+  // options for @nuxtjs/stylelint-module
+  // https://nuxt.com/modules/stylelint
+  stylelint: {
+    cache: true,
+    lintOnStart: true,
+    emitWarning: true,
+    emitError: true,
+    failOnWarning: true,
+    failOnError: true,
+    stylelintPath: 'stylelint',
+    formatter: 'string'
   },
 
   unocss: {
