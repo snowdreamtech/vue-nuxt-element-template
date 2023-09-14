@@ -19,6 +19,8 @@
     "selector-id-pattern": null,
     "selector-pseudo-class-no-unknown": null,
     "no-descending-specificity": null,
+    "import-notation": null,
+    "scss/at-import-partial-extension": null,
     "property-no-unknown": null
 
   }
