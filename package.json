@@ -19,6 +19,7 @@
     "generate": "MODE=prod nuxi generate",
     "postinstall": "MODE=prod nuxi prepare",
     "lint": "eslint --fix --ext .js,.ts,.vue .",
+    "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss,sass,styl}\"",
     "msw": "npx msw init public/ --save"
   },
   "dependencies": {
@@ -40,6 +41,7 @@
     "@nuxtjs/eslint-module": "4.1.0",
     "@nuxtjs/i18n": "8.0.0-rc.4",
     "@nuxtjs/robots": "3.0.0",
+    "@nuxtjs/stylelint-module": "5.1.0",
     "@pinia/nuxt": "0.4.11",
     "@unocss/nuxt": "0.55.7",
     "@vueuse/nuxt": "10.4.1",
@@ -49,8 +51,21 @@
     "msw": "1.3.0",
     "nuxt": "3.7.2",
     "nuxt-icon": "0.5.0",
+    "postcss": "8.4.29",
+    "postcss-html": "1.5.0",
     "rollup-plugin-node-polyfills": "0.2.1",
-    "sass": "1.66.1",
+    "sass": "1.67.0",
+    "stylelint": "15.10.3",
+    "stylelint-config-html": "1.1.0",
+    "stylelint-config-prettier": "9.0.5",
+    "stylelint-config-recommended": "13.0.0",
+    "stylelint-config-recommended-less": "2.0.0",
+    "stylelint-config-recommended-scss": "13.0.0",
+    "stylelint-config-recommended-vue": "1.5.0",
+    "stylelint-config-standard": "34.0.0",
+    "stylelint-config-standard-scss": "11.0.0",
+    "stylelint-less": "2.0.0",
+    "stylelint-order": "6.0.3",
     "typescript": "5.2.2"
   },
   "pnpm": {
