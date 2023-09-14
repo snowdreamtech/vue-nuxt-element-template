@@ -1,0 +1,121 @@
+{
+  "version": "2.0.0",
+  "cwd": "${workspaceFolder}",
+  "tasks": [
+    {
+      "label": "Project: Install/Update Tools",
+      "group": "build",
+      "type": "shell",
+      "dependsOrder": "parallel",
+      "dependsOn": ["Project: Install/Update pnpm"]
+    },
+    {
+      "label": "Project: Lint",
+      "group": "build",
+      "type": "shell",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Project: Lint Eslint",
+        "Project: Lint Stylelint",
+      ]
+    },
+    {
+      "label": "Project: Install pnpm",
+      "command": "npm",
+      "args": ["install", "-g", "pnpm@latest"],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "Project: Update pnpm",
+      "command": "pnpm",
+      "args": ["install", "-g", "pnpm@latest"],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "Project: Install Dependencies",
+      "command": "pnpm",
+      "args": ["install", "--no-frozen-lockfile"],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "Project: Upgrade Dependencies",
+      "command": "pnpm",
+      "args": ["update", "--latest", "-i"],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "Project: Debugging",
+      "command": "pnpm",
+      "args": ["dev"],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "Project: Staging",
+      "command": "pnpm",
+      "args": ["stage"],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "Project: Build",
+      "command": "pnpm",
+      "args": ["build"],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "Project: Preview",
+      "command": "pnpm",
+      "args": ["preview"],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "Project: Start",
+      "command": "pnpm",
+      "args": ["start"],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "Project: Generate",
+      "command": "pnpm",
+      "args": ["generate"],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "Project: Generate MSW",
+      "command": "pnpm",
+      "args": ["msw"],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "Project: Lint Eslint",
+      "command": "pnpm",
+      "args": ["lint:eslint"],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "Project: Lint Stylelint",
+      "command": "pnpm",
+      "args": ["lint:stylelint"],
+      "group": "build",
+      "type": "shell"
+    },
+    {
+      "label": "Project: Lint Commitlint",
+      "command": "pnpm",
+      "args": ["lint:commitlint"],
+      "group": "build",
+      "type": "shell"
+    }
+  ]
+}
