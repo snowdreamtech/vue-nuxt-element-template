@@ -47,12 +47,13 @@ const handleClickOutside = function () {
 </script>
 
 <style lang="scss" scoped>
-  @import "@/styles/mixin.scss";
-  @import "@/styles/variables.module.scss";
-  @import "@/styles/index.scss";
+  @import url("@/styles/mixin");
+  @import url("@/styles/variables.module");
+  @import url("@/styles/index");
 
 .app-wrapper {
   @include clearfix;
+
   position: relative;
   height: 100%;
   width: 100%;

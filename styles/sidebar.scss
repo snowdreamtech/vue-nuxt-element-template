@@ -1,5 +1,4 @@
 #__nuxt {
-
   .main-container {
     min-height: 100%;
     transition: margin-left .28s;
@@ -14,7 +13,7 @@
     background-color: var(--el-menu-bg-color);
     height: 100%;
     position: fixed;
-    font-size: 0px;
+    font-size: 0;
     top: 0;
     bottom: 0;
     left: 0;
@@ -31,7 +30,7 @@
     }
 
     .el-scrollbar__bar.is-vertical {
-      right: 0px;
+      right: 0;
     }
 
     .el-scrollbar {
@@ -144,7 +143,6 @@
     
     .el-menu-item {
       overflow: hidden;
-
         padding: 0 !important;
 
         .svg-icon {
@@ -192,7 +190,7 @@
   // mobile responsive
   .mobile {
     .main-container {
-      margin-left: 0px;
+      margin-left: 0;
     }
 
     .sidebar-container {
@@ -210,7 +208,6 @@
   }
 
   .withoutAnimation {
-
     .main-container,
     .sidebar-container {
       transition: none;
@@ -224,6 +221,7 @@
     .svg-icon {
       margin-right: 16px;
     }
+
     .sub-el-icon {
       margin-right: 12px;
       margin-left: -2px;
