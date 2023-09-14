@@ -20,7 +20,8 @@
     "postinstall": "MODE=prod nuxi prepare",
     "lint:eslint": "eslint --fix --ext .js,.ts,.vue .",
     "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss,sass,styl}\"",
-    "msw": "npx msw init public/ --save"
+    "msw": "npx msw init public/ --save",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@element-plus/icons-vue": "2.1.0",
@@ -48,6 +49,7 @@
     "consola": "3.2.3",
     "dotenv": "16.3.1",
     "eslint": "8.49.0",
+    "husky": "^8.0.0",
     "msw": "1.3.0",
     "nuxt": "3.7.2",
     "nuxt-icon": "0.5.0",
