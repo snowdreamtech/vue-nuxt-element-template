@@ -32,10 +32,10 @@ dependencies:
 
 devDependencies:
   '@commitlint/cli':
-    specifier: ^17.7.1
+    specifier: 17.7.1
     version: 17.7.1
   '@commitlint/config-conventional':
-    specifier: ^17.7.0
+    specifier: 17.7.0
     version: 17.7.0
   '@element-plus/nuxt':
     specifier: 1.0.6
@@ -83,8 +83,8 @@ devDependencies:
     specifier: 8.49.0
     version: 8.49.0
   husky:
-    specifier: ^8.0.0
-    version: 8.0.3
+    specifier: 8.0.0
+    version: 8.0.0
   msw:
     specifier: 1.3.0
     version: 1.3.0(typescript@5.2.2)
@@ -1346,8 +1346,8 @@ packages:
     engines: {node: '>= 16'}
     dev: true
 
-  /@intlify/shared@9.4.0:
-    resolution: {integrity: sha512-AFqymip2kToqA0B6KZPg5jSrdcVHoli9t/VhGKE2iiMq9utFuMoGdDC/JOCIZgwxo6aXAk86QyU2XtzEoMuZ6A==}
+  /@intlify/shared@9.4.1:
+    resolution: {integrity: sha512-A51elBmZWf1FS80inf/32diO9DeXoqg9GR9aUDHFcfHoNDuT46Q+fpPOdj8jiJnSHSBh8E1E+6qWRhAZXdK3Ng==}
     engines: {node: '>= 16'}
     dev: true
 
@@ -6041,8 +6041,8 @@ packages:
       ms: 2.1.3
     dev: true
 
-  /husky@8.0.3:
-    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+  /husky@8.0.0:
+    resolution: {integrity: sha512-4qbE/5dzNDNxFEkX9MNRPKl5+omTXQzdILCUWiqG/lWIAioiM5vln265/l6I2Zx8gpW8l1ukZwGQeCFbBZ6+6w==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -10570,7 +10570,7 @@ packages:
       vue-router:
         optional: true
     dependencies:
-      '@intlify/shared': 9.4.0
+      '@intlify/shared': 9.4.1
       '@intlify/vue-i18n-bridge': 0.8.0(vue-i18n@9.3.0-beta.27)
       '@intlify/vue-router-bridge': 0.8.0
       ufo: 1.3.0

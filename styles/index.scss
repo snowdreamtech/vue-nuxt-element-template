@@ -1,8 +1,8 @@
-@import url('./variables.module');
-@import url('./mixin');
-@import url('./transition');
-@import url('./element-ui');
-@import url('./sidebar');
+@import './variables.module.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
 
 body {
   height: 100%;
