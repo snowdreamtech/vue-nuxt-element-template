@@ -1,0 +1,26 @@
+{
+    "recommendations": [
+        "vue.volar",
+        "vue.vscode-typescript-vue-plugin",
+        "dariofuzinato.vue-peek",
+        "axetroy.vscode-whatchanged",
+        "mhutchie.git-graph",
+        "wmaurer.change-case",
+        "ms-ceintl.vscode-language-pack-zh-hans",
+        "ms-ceintl.vscode-language-pack-zh-hant",
+        "compulim.compulim-vscode-closetag",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "stylelint.vscode-stylelint",
+        "joshbolduc.commitlint",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "sdras.vue-vscode-snippets",
+        "github.vscode-github-actions",
+        "ecmel.vscode-html-css",
+        "mikestead.dotenv",
+        "visualstudioexptteam.vscodeintellicode",
+        "christian-kohler.npm-intellisense",
+        "christian-kohler.path-intellisense"
+    ]
+}
