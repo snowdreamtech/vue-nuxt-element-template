@@ -1,15 +1,15 @@
-@import './variables.module.scss';
-@import './mixin.scss';
-@import './transition.scss';
-@import './element-ui.scss';
-@import './sidebar.scss';
+@import url('./variables.module');
+@import url('./mixin');
+@import url('./transition');
+@import url('./element-ui');
+@import url('./sidebar');
 
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  text-rendering: optimizelegibility;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
 }
 
 label {
@@ -26,14 +26,9 @@ html {
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
-}
-
-a:focus,
-a:active {
-  outline: none;
 }
 
 a,
@@ -44,12 +39,17 @@ a:hover {
   text-decoration: none;
 }
 
+a:focus,
+a:active {
+  outline: none;
+}
+
 div:focus {
   outline: none;
 }
 
 .clearfix {
-  &:after {
+  &::after {
     visibility: hidden;
     display: block;
     font-size: 0;
