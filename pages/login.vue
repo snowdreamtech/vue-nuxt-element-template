@@ -234,6 +234,7 @@ const handleLogin = async () => {
 
 <style lang="scss">
 /* 修复input 背景不协调 和光标变色 */
+
 /* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
 
 $bg:#283443;
@@ -254,36 +255,33 @@ $cursor: #fff;
 
     .el-input__wrapper{
       background: transparent;
-      border: 0px;
-      -webkit-appearance: none;
+      border: 0;
       appearance: none;
-      border-radius: 0px;
-
-      box-shadow: 0 0 0px 1000px $bg inset !important;
+      border-radius: 0;
+      box-shadow: 0 0 0 1000px $bg inset !important;
       -webkit-text-fill-color: $cursor !important;
     }
 
     input {
       background: transparent;
-      border: 0px;
-      -webkit-appearance: none;
+      border: 0;
       appearance: none;
-      border-radius: 0px;
+      border-radius: 0;
       padding: 12px 5px 12px 15px;
       color: $light_gray;
       height: 47px;
       caret-color: $cursor;
 
       &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $bg inset !important;
+        box-shadow: 0 0 0 1000px $bg inset !important;
         -webkit-text-fill-color: $cursor !important;
       }
     }
   }
 
   .el-form-item {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(255 255 255 / 10%);
+    background: rgb(0 0 0 / 10%);
     border-radius: 5px;
     color: #454545;
   }
@@ -336,7 +334,7 @@ $light_gray:#eee;
     .title {
       font-size: 26px;
       color: $light_gray;
-      margin: 0px auto 40px auto;
+      margin: 0 auto 40px;
       text-align: center;
       font-weight: bold;
     }
@@ -346,7 +344,7 @@ $light_gray:#eee;
       position: absolute;
       top: 3px;
       font-size: 18px;
-      right: 0px;
+      right: 0;
       cursor: pointer;
     }
   }

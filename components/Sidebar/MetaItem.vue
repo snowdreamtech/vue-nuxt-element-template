@@ -30,7 +30,7 @@ const iconcomponent = computed(() => {
 
 <style scoped>
 .sub-el-icon {
-  color: currentColor;
+  color: currentcolor;
   width: 2em;
   height: 2em;
 }
