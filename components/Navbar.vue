@@ -65,7 +65,7 @@ const logout = async () => {
   overflow: hidden;
   position: relative;
   // background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+  box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
 
   .hamburger-container {
     line-height: 46px;
@@ -76,7 +76,7 @@ const logout = async () => {
     -webkit-tap-highlight-color: transparent;
 
     &:hover {
-      background: rgba(0, 0, 0, .025)
+      background: rgb(0 0 0 / 2.5%)
     }
   }
 
@@ -106,7 +106,7 @@ const logout = async () => {
         transition: background .3s;
 
         &:hover {
-          background: rgba(0, 0, 0, .025)
+          background: rgb(0 0 0 / 2.5%)
         }
       }
     }
