@@ -18,7 +18,7 @@
     "start": "MODE=prod node .output/server/index.mjs",
     "generate": "MODE=prod nuxi generate",
     "postinstall": "MODE=prod nuxi prepare",
-    "lint": "eslint --fix --ext .js,.ts,.vue .",
+    "lint:eslint": "eslint --fix --ext .js,.ts,.vue .",
     "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss,sass,styl}\"",
     "msw": "npx msw init public/ --save"
   },
