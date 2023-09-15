@@ -1,14 +1,8 @@
-# Element Plus with Nuxt 3 Minimal Starter
+# Vue Nuxt Element Template
 
-<pre align="center">
-🏗 Working in Progress
-</pre>
+Vue3 + Nuxt3 + Element Plus (template)
 
-SSR Preview: <https://element-plus-nuxt.vercel.app/>
-
-SSG Preview: <https://nuxt-starter.element-plus.org/>
-
-We recommend to look at the [Nuxt 3 Docs](https://nuxt.com/) and [Element Plus Docs](https://element-plus.org/).
+We recommend to look at the [Vue 3 Docs](https://vuejs.org/) and [Nuxt 3 Docs](https://nuxt.com/) and [Element Plus Docs](https://element-plus.org/).
 
 ## Setup
 
@@ -26,7 +20,7 @@ Start the development server on `http://localhost:3000`
 pnpm dev
 ```
 
-More info about [nuxt deployment](https://nuxt.com/docs/getting-started/deployment#presets).
+More info about [nuxt development](https://www.conventionalcommits.org/en) and [nuxt deployment](https://nuxt.com/docs/getting-started/deployment#presets).
 
 Run `npm run generate` to generate static html in `.output/public`.
 
@@ -34,16 +28,16 @@ Run `npm run generate` to generate static html in `.output/public`.
 
 Build the application for production:
 
+### SSR
+
 ```bash
 pnpm build
 ```
 
+### SSG
+
+```bash
+pnpm generate
+```
+
 Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment).
-
-## Deploy
-
-You need set `NITRO_PRESET=vercel-edge`, see [Nuxt on Vercel](https://vercel.com/docs/frameworks/nuxt#edge-functions).
-
-## Ref
-
-- [vitesse-nuxt3](https://github.com/antfu/vitesse-nuxt3)
