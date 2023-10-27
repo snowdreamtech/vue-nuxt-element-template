@@ -1,7 +1,7 @@
-import { rest } from 'msw'
+import { http } from 'msw'
 import serverApi from '@/mocks/handlers/serverApi'
 
-const getMain = rest.get(serverApi('/'), (req, res, ctx) => {
+const getMain = http.get(serverApi('/'), (info) => {
   return res(
     ctx.json({
       ok: true,
