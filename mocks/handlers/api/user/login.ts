@@ -1,4 +1,4 @@
-import { rest } from 'msw'
+import { http, HttpResponse, delay } from 'msw'
 import serverApi from '@/mocks/handlers/serverApi'
 import serverResponse from '@/mocks/handlers/serverResponse'
 
@@ -11,47 +11,38 @@ const tokens = {
   }
 }
 
-type LoginData = {
+interface LoginData{
   username: string;
   password: string;
 };
 
-const userLogin = rest.post(serverApi('/login'), async (req, res, ctx) => {
-  const type = req.url.searchParams.get('type')
+const userLogin = http.post(serverApi('/login'), async ({ request }) => {
+  const url = new URL(request.url)
+  const type = url.searchParams.get('type')
   // console.log('login type: ' + type)
 
-  const data = await req.json<LoginData>()
+  // Read the request body as JSON.
+  const data = await request.json() as LoginData
   // console.log("login data: ");
   // console.log(data);
   // console.log(data.username);
+  const { username } = data
 
   if (data.username === '') {
-    return res(
-      ctx.status(200),
-      ctx.json(serverResponse('FAILURE', 'Account and password are incorrect.', '')),
-      ctx.delay(100)
-    )
+    await delay(100)
+    return HttpResponse.json(serverResponse('FAILURE', 'Account and password are incorrect.', ''))
   }
 
-  switch (data.username) {
+  switch (username) {
     case 'admin':
-      return res(
-        ctx.status(200),
-        ctx.json(serverResponse('SUCCESS', 'SUCCESS', tokens.admin.token)),
-        ctx.delay(100)
-      )
+      await delay(100)
+      return HttpResponse.json(serverResponse('SUCCESS', 'SUCCESS', tokens.admin.token))
     case 'editor':
-      return res(
-        ctx.status(200),
-        ctx.json(serverResponse('SUCCESS', 'SUCCESS', tokens.editor.token)),
-        ctx.delay(100)
-      )
+      await delay(100)
+      return HttpResponse.json(serverResponse('SUCCESS', 'SUCCESS', tokens.editor.token))
     default:
-      return res(
-        ctx.status(200),
-        ctx.json(serverResponse('FAILURE', 'Account and password are incorrect.', '')),
-        ctx.delay(100)
-      )
+      await delay(100)
+      return HttpResponse.json(serverResponse('FAILURE', 'Account and password are incorrect.', ''))
   }
 })
 
