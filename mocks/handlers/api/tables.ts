@@ -1,4 +1,4 @@
-import { rest } from 'msw'
+import { http, HttpResponse, delay } from 'msw'
 import { faker } from '@faker-js/faker'
 import serverApi from '@/mocks/handlers/serverApi'
 import serverResponse from '@/mocks/handlers/serverResponse'
@@ -33,12 +33,9 @@ const data = {
   items: List
 }
 
-const listTables = rest.get(serverApi('/tables'), (req, res, ctx) => {
-  return res(
-    ctx.status(200),
-    ctx.json(serverResponse('SUCCESS', 'SUCCESS', data)),
-    ctx.delay(100)
-  )
+const listTables = http.get(serverApi('/tables'), async () => {
+  await delay(100)
+  return HttpResponse.json(serverResponse('SUCCESS', 'SUCCESS', data))
 })
 
 export default listTables
