@@ -1,4 +1,4 @@
-import { rest } from 'msw'
+import { http, HttpResponse, delay } from 'msw'
 import serverApi from '@/mocks/handlers/serverApi'
 import serverResponse from '@/mocks/handlers/serverResponse'
 
@@ -19,38 +19,26 @@ const users = {
   }
 }
 
-const userInfo = rest.get(serverApi('/info'), (req, res, ctx) => {
-  const token = req.url.searchParams.get('token')
-
+const userInfo = http.get(serverApi('/info'), async ({ request }) => {
+  const url = new URL(request.url)
+  const token = url.searchParams.get('token')
   if (!token) {
-    return res(
-      ctx.status(200),
-      ctx.json(serverResponse('FAILURE', 'Login failed, unable to get user details.', '')),
-      ctx.delay(100)
-    )
+    await delay(100)
+    return HttpResponse.json(serverResponse('FAILURE', 'Login failed, unable to get user details.', ''))
   }
 
   let info
 
   switch (token) {
     case 'admin-token':
-      return res(
-        ctx.status(200),
-        ctx.json(serverResponse('SUCCESS', 'SUCCESS', users['admin-token'])),
-        ctx.delay(100)
-      )
+      await delay(100)
+      return HttpResponse.json(serverResponse('SUCCESS', 'SUCCESS', users['admin-token']))
     case 'editor-token':
-      return res(
-        ctx.status(200),
-        ctx.json(serverResponse('SUCCESS', 'SUCCESS', users['editor-token'])),
-        ctx.delay(100)
-      )
+      await delay(100)
+      return HttpResponse.json(serverResponse('SUCCESS', 'SUCCESS', users['editor-token']))
     default:
-      return res(
-        ctx.status(200),
-        ctx.json(serverResponse('FAILURE', 'Login failed, unable to get user details.', '')),
-        ctx.delay(100)
-      )
+      await delay(100)
+      return HttpResponse.json(serverResponse('FAILURE', 'Login failed, unable to get user details.', ''))
   }
 })
 
