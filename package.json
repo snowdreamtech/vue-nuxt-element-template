@@ -35,7 +35,7 @@
     "screenfull": "6.0.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.2.2",
+    "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
     "@element-plus/nuxt": "1.0.9",
     "@faker-js/faker": "8.4.1",
@@ -51,7 +51,7 @@
     "@vueuse/nuxt": "10.9.0",
     "consola": "3.2.3",
     "dotenv": "16.4.5",
-    "eslint": "9.1.0",
+    "eslint": "9.1.1",
     "husky": "9.0.11",
     "msw": "2.2.14",
     "nuxt": "3.11.2",
