@@ -72,9 +72,9 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/devtools',
     '@nuxtjs/robots',
-    '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module',
-    'nuxt-icon'
+    'nuxt-icon',
+    '@nuxt/eslint'
   ],
 
   // vueuse
@@ -115,7 +115,7 @@ export default defineNuxtConfig({
     // ...other options
   },
 
-  // options for @nuxtjs/eslint-module
+  // options for @nuxtjs/eslint
   // https://nuxt.com/modules/eslint
   eslint: {
     cache: true,
