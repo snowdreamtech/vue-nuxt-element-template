@@ -1,5 +1,5 @@
 interface SSNUNVObject {
-    [key: string]: string | number | undefined | null | void
+    [key: string]: string | number | undefined | null
 }
 
 interface SSNObject {
